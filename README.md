@@ -7,8 +7,9 @@
 ## General Info
 This browser based web application to ...
 
-This marjan!!
+Hi this marjan!
 	
+• Hey this is Terence, adding my 2 bits to this project.	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
