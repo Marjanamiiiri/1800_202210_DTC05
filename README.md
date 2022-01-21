@@ -11,6 +11,11 @@ Hi this marjan!
 	
 • Hey this is Terence, adding my 2 bits to this project.	
 ## Technologies
+=======
+•Hello this is Wallace Trinh.
+• Hey it's Terence.	
+## Technologies ???
+>>>>>>> 4f8c66b9bf3660c1be64b3d62f2b735551c1d685
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
