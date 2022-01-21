@@ -7,8 +7,8 @@
 ## General Info
 This browser based web application to ...
 •Hello this is Wallace Trinh.
-• Hey it's T.	
-## Technologies
+• Hey it's Terence.	
+## Technologies ???
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
