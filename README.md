@@ -8,6 +8,7 @@
 This browser based web application to ...
 •Hello this is Wallace Trinh.
 • Hey it's Terence.	
+This is a test line.
 ## Technologies ???
 Technologies used for this project:
 * HTML, CSS
