@@ -7,9 +7,10 @@
 ## General Info
 This browser based web application to ...
 •Hello this is Wallace Trinh.
+Test line for Hoda
 • Hey it's Terence.	
-This is a test line.
-## Technologies ???
+Another test line, for glory.
+## Technologies
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
