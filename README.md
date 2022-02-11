@@ -7,20 +7,8 @@
 ## General Info
 This browser based web application to ...
 
-Hi this marjan!!!!
-	
-• Hey this is Terence, adding my 2 bits to this project.	
 ## Technologies
 =======
-•Hello this is Wallace Trinh.
-Test line for Hoda
-• Hey it's Terence.	
-Another test line, for glory.
-marjan's line
-## Technologies
-This is a test line.
-## Technologies ???
->>>>>>> 4962e00acd8cb159315545dc785dff2206253bd8
 Technologies used for this project:
 * HTML, CSS
 * JavaScript
