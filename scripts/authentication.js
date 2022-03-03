@@ -18,7 +18,7 @@ var uiConfig = {
             email: user.email
           }).then(function(){
             console.log("New user added");
-            window.location.assign("main.html");
+            window.location.assign("index.html");
           })
           .catch(function (error) {
             console.log(error);
@@ -36,7 +36,7 @@ var uiConfig = {
   },
   // Once signed in, it will redirect you to the main.html
   signInFlow: 'popup',
-  signInSuccessUrl: 'main.html',
+  signInSuccessUrl: 'index.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -51,4 +51,5 @@ var uiConfig = {
   // Privacy policy url.
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
+
 ui.start('#firebaseui-auth-container', uiConfig);

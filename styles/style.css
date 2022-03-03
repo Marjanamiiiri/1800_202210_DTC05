@@ -111,7 +111,6 @@ a:active {
   margin-right: 40px;
 }
 
-<<<<<<< HEAD
 /* Up for changes, but trying to make the whole page a certain background with the image within the Backgrounds folder. But not able to */
 body {
   background-image: image-set("./images/Backgrounds/OlympicstandingGrey");
@@ -121,9 +120,11 @@ body {
 }
 
 /* Below containerlogin, wanting to add a border around the signup/login  */
-#containerlogin{ 
+.containerlogin{ 
+  text-align: center;
   border: #003f7d 1px;
-=======
+}
+
 #img1 {
   padding: 10px;
   float: right;
@@ -188,5 +189,4 @@ body {
 .fa-instagram {
   background: wheat;
   color: white;
->>>>>>> cbc4fc630e641af994fa70101fd56f54c0322116
 }
