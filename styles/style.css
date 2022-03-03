@@ -150,6 +150,22 @@ body {
 
 
 }
+
+#center {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.event-container {
+  width: 25%;
+  float: left;
+  padding: 10px;
+}
+
+.clearfix {
+  overflow: hidden;
+}
+
 .fa {
   padding: 9px;
   font-size: 15px;
