@@ -110,3 +110,16 @@ a:active {
 .img{
   margin-right: 40px;
 }
+
+/* Up for changes, but trying to make the whole page a certain background with the image within the Backgrounds folder. But not able to */
+body {
+  background-image: image-set("./images/Backgrounds/OlympicstandingGrey");
+  opacity: 0.95;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Below containerlogin, wanting to add a border around the signup/login  */
+#containerlogin{ 
+  border: #003f7d 1px;
+}
