@@ -1,6 +1,6 @@
 //footer and navbar 
 function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('./nav.html'));
-    console.log($('#footerPlaceholder').load('./footer.html'));
+    console.log($('#navbarPlaceholder').load('./text/nav.html'));
+    console.log($('#footerPlaceholder').load('./text/footer.html'));
 }
 loadSkeleton();  //invoke the function
