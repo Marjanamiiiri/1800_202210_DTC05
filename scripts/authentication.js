@@ -18,7 +18,7 @@ var uiConfig = {
             email: user.email
           }).then(function(){
             console.log("New user added");
-            window.location.assign("index.html");
+            window.location.assign("main.html");
           })
           .catch(function (error) {
             console.log(error);
