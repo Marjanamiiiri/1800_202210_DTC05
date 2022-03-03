@@ -24,7 +24,7 @@
 
   <!-- Other libraries go here -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 
 <body>
@@ -34,30 +34,33 @@
   <div class="container">
     <h1>Winter Sports</h1>
     <div id="container">
-        <div id="sport-go-here" class="row row-cols-auto">
-            <template id="sportCardTemplate">
-                <div class="card py-2 mx-2" style="width: 18rem;">
-                    <img class="card-image card-img-top" src=" ..." alt="..." style="height: 160px">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of the
-                            card's content.</p>
-                        <a class="btn btn-primary card-href bg-success">Get Details</a>
-                    </div>
-                </div>
-            </template>
-        </div>
+      <div id="sports-go-here" class="row row-cols-auto">
+        <template id="sportCardTemplate">
+          <div class="card py-2 mx-2" style="width: 18rem;">
+            <img class="card-image card-img-top" src=" ..." alt="..." style="height: 160px">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                of the
+                card's content.</p> -->
+              <a class="btn btn-primary card-href bg-success">Get Details</a>
+            </div>
+          </div>
+        </template>
+      </div>
     </div>
-</div>
+  </div>
+
+  <!-- how to generate sub-categories? from collection 'sports' get doc
+  url = 'https://olympics.com/en/beijing-2022/sports/' + doc.id + '/' -->
 
   <!-- Footer -->
   <nav id="footerPlaceholder"></nav>
 
   <!-- Javascript scripts -->
-  <script src="./scripts/firebaseAPI_Team05"></script>
+  <script src="./scripts/firebaseAPI_TEAM05.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/script.js"></script>
+  <script src="./scripts/sports.js"></script>
 </body>
 
 </html>
