@@ -28,34 +28,3 @@ function insertName() {
     });
 }
 insertName();
-
-function displayCards(collection) {
-    let cardTemplate = document.getElementById("hikeCardTemplate");
-
-    db.collection(collection).get()
-        .then(snap => {
-            var i = 1;
-            snap.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;
-                var details = doc.data().details;
-                var photo = doc.data().photo;
-                let newcard = cardTemplate.content.cloneNode(true);
-
-                //update title and text and image
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-image').src = photo;
-
-                //give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-                //attach to gallery
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-                i++;
-            })
-        })
-}
-
-displayCards("hikes");
