@@ -1,4 +1,4 @@
-// greet user with their name
+// greets user by their given name
 
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {

@@ -1,5 +1,5 @@
 // Initialize the FirebaseUI Widget using Firebase.
-// For Authentication
+// For Authentication connected via login.html
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
