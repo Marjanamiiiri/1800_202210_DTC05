@@ -48,22 +48,32 @@
        
                <form id='form-id'>
                    <input id='see-me' name='test' type='radio' /> Create Group
-                   <input id='look-me' name='test' type='radio' /> Join Group
+                   <input id='look-me' name='test' type='radio' /> Join Existing Group
                </form>
                <br><br>
                <div id='show-me'>
 
                    <!-- Tab panes -->
                    <div class="tab-content">
-                       <div role="tabpanel" class="tab-pane active" id="home">Home Tab Content</div>
-                       <div role="tabpanel" class="tab-pane" id="profile">Profile Tab Content</div>
-                       <div role="tabpanel" class="tab-pane" id="messages">Messages tab Content</div>
-                       <div role="tabpanel" class="tab-pane" id="settings">Setting tab Content</div>
+                       <div role="tabpanel" class="tab-pane active" id="home"></div>
                    </div>
                </div>
                
-               <div id='show-me-two' style='display:none; border:2px solid #ccc'>Editing snippet "On Click Change on Radio Button" <br> Editing snippet "On Click Change on Radio Button"</div>
-               <div id='show-me-three' style='display:none; border:2px solid #ccc'>Hello I'm Div 3</div>
+               <div id='show-me-two' style='display:none; border:2px solid #ccc'><h2>Create Group</h2>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Group Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-end mt-5">
+                    <span style="width: 10px"></span>
+                    <button type="button" class="btn btn-info" onclick="CreateGroupInfo()">Submit</button>
+                </div>
+            </form>
+        </div>
+            </div>
+               <div id='show-me-three' style='display:none; border:2px solid #ccc'><h2>Join Group</h2></div>
                  
         </div>
        </div>
