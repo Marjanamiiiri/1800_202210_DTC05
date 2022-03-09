@@ -47,8 +47,8 @@
         <div class="col-sm-12" align="center">
        
                <form id='form-id'>
-                   <input id='see-me' name='test' type='radio' /> Create Group
-                   <input id='look-me' name='test' type='radio' /> Join Existing Group
+                   <button id='see-me' type='button'>Create Group</button>
+                   <button id='look-me' type='button'> Join Existing Group</button>
                </form>
                <br><br>
                <div id='show-me'>
@@ -58,12 +58,12 @@
                        <div role="tabpanel" class="tab-pane active" id="home"></div>
                    </div>
                </div>
-               
-               <div id='show-me-two' style='display:none; border:2px solid #ccc'><h2>Create Group</h2>
+               <!--For the text box for group name submission-->
+               <div id='show-me-two' style='margin-right: 400px; margin-left: 400px; border:2px solid #ccc'><h2>Create Group</h2>
                 <fieldset class="mb-3" id="personalInfoFields" disabled>
                     <div class="form-group">
                         <label>Group Name</label>
-                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your group name">
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
@@ -77,31 +77,6 @@
                  
         </div>
        </div>
-       
-
-    <!--Below may or maybe not be deleted-->
-      <!-- <form>
-          <fieldset class="mb-3" id="personalInfoFields" disabled>
-              <div class="form-group">
-                  <label>Group Name</label>
-                  <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-              </div>
-          </fieldset>
-          <div class="d-flex justify-content-end mt-5">
-              <span style="width: 10px"></span>
-              <button type="button" class="btn btn-info" onclick="CreateGroupInfo()">Submit</button>
-          </div>
-      </form>
-  </div>
-
-            </div>
-      <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-      <label class="btn btn-secondary" for="option2">Radio</label>
-        </div> -->
-
-
-      <!--This entire div below are the Olympic sports icons-->
-
 
 
     <!--This below is our scoreboard, may be changed in the future-->
