@@ -1,4 +1,4 @@
-function displayAthleteCards(collection) {
+function displayCards(collection) {
   let cardTemplate = document.getElementById("athleteCardTemplate");
 
   db.collection(collection)
@@ -6,7 +6,7 @@ function displayAthleteCards(collection) {
     .then((snap) => {
       var i = 1;
       snap.forEach((doc) => {
-        //iterate thru each doc
+        // iterate thru each doc
 
         // set some variable to data from database document
         var name = doc.data().name;
@@ -15,7 +15,7 @@ function displayAthleteCards(collection) {
         // clone the template
         let newcard = cardTemplate.content.cloneNode(true);
 
-        //update elements of the clone
+        // update elements of the clone
         newcard.querySelector(".athlete-card-name").innerHTML = name;
         newcard.querySelector(".thlete-card-age").innerHTML = age;
 
@@ -26,12 +26,12 @@ function displayAthleteCards(collection) {
     });
 }
 
-// displayAthleteCard("athletes");
-function diplayAthletes(){
-    eventSelection = $('#event-selection').val();
-    console.log(eventSelection);
-}
+// displayCards("athletes");
 
+function diplayAthletes() {
+  eventSelection = $("#event-selection").val();
+  // console.log(eventSelection);
+}
 
 function setup() {
   $("#get-event-selection").click(diplayAthletes);
