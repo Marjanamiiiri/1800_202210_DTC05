@@ -210,3 +210,8 @@ body {
 .container {
   padding: 30px;
 }
+
+/* General Centering for text */
+.containerCenter{ 
+  text-align: center;
+}
