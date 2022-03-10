@@ -31,19 +31,23 @@ function displayCards(collection) {
       });
     });
     // document.querySelector(".card").addEventListener("click", gotoEventsPage);
-    // document.querySelector("button").onclick = function () {console.log("hey")};
+    // document.querySelector(".card").onclick = function () {console.log("hey")};
+
+    document.querySelector(".card-block").onclick = function () {console.log("hey")};
 }
 
 displayCards("sports");
 
 function gotoEventsPage() {
   console.log("hey");
-  // need to get sport 
-  window.location.href = "sports-events.html";
+  // need to get sport! but for now..
+  let sport = 'skiing';
+
+  window.location.href = "sports-events.html?sport=" + sport;
 }
 
 function setup() {
-  $("button").on("click", gotoEventsPage);
+//   $(".card-block").on("click", gotoEventsPage);
 }
 $(document).ready(setup);
 

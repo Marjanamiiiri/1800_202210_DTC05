@@ -55,17 +55,21 @@
         <div id="sports-go-here" class="row row-cols-auto">
           <template id="sportCardTemplate">
             <div class="card py-3 my-2 mx-2" style="width: 12rem">
-              <img
-                class="card-image card-img-top"
-                src=" ..."
-                alt="..."
-                style="height: 160px"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-              </div>
-              <!-- shouldn't' have to use onclick :<  -->
-              <button class="see-event" onclick="gotoEventsPage()">see event</button>
+              
+              <!-- make it appear clickable (still not working) -->
+              <a class="card-block stretched-link text-decoration-none" href>
+                <img
+                  class="card-image card-img-top"
+                  src=" ..."
+                  alt="..."
+                  style="height: 160px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                </div>
+                <!-- shouldn't' have to use onclick :<  -->
+                <!-- <button class="see-event" onclick="gotoEventsPage()">see event</button> -->
+              </a>
             </div>
           </template>
         </div>
