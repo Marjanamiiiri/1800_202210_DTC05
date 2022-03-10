@@ -1,5 +1,11 @@
+const urlParams = new URLSearchParams(window.location.search);
+const currEvent = urlParams(sportevent);
+
 function displayCards(collection) {
   let cardTemplate = document.getElementById("athleteCardTemplate");
+
+   // use currEvent to query firestore and get all athletes for this event
+   // to populate templates with
 
   db.collection(collection)
     .get()

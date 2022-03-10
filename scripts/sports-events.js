@@ -1,8 +1,12 @@
-function displayCards(collection) {
+const urlParams = new URLSearchParams(window.location.search);
+const currSport = urlParams(sport);
+
+function displayCards(collection, sport) {
   let cardTemplate = document.getElementById("eventCardTemplate");
 
+  // use currSport to query firestore and get all events for this sport
+  // to populate templates with
 
-  // this will be a little more complicated...
   db.collection(collection)
     .get()
     .then((snap) => {
@@ -38,7 +42,7 @@ function displayCards(collection) {
 
 function gotoAthletesPage() {
   console.log("hey");
-  window.location.href = "athletes.html";
+  window.location.href = "athletes.html?sportevent=" + sportevent;
 }
 
 function setup() {
