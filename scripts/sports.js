@@ -20,23 +20,33 @@ function displayCards(collection) {
         newcard.querySelector(".card-image").src =
           "./images/sports/" + doc.id + ".svg";
 
+        
         // give unique ids to all elements for future use
         // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
 
         // attach to gallery
         document.getElementById(collection + "-go-here").appendChild(newcard);
-        i++;
+        
+        // i++;
       });
     });
+    // document.querySelector(".card").addEventListener("click", gotoEventsPage);
+    // document.querySelector("button").onclick = function () {console.log("hey")};
 }
 
 displayCards("sports");
 
-function gotoSubsports(){
-    
+function gotoEventsPage() {
+  console.log("hey");
+  // need to get sport 
+  window.location.href = "sports-events.html";
 }
 
 function setup() {
-    $(".card").click(gotoSubsports);
-  }
-  $(document).ready(setup);
+  $("button").on("click", gotoEventsPage);
+}
+$(document).ready(setup);
+
+// document.querySelector(".see-event").addEventListener("click", function () {
+//   console.log("hey");
+// });

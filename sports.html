@@ -47,6 +47,10 @@
 
     <div class="container">
       <h1>Winter Sports</h1>
+
+      <!-- testing button -->
+      <div id="biathlon"><button class="see-event">see event</button></div>
+
       <div id="container">
         <div id="sports-go-here" class="row row-cols-auto">
           <template id="sportCardTemplate">
@@ -60,6 +64,8 @@
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
               </div>
+              <!-- shouldn't' have to use onclick :<  -->
+              <button class="see-event" onclick="gotoEventsPage()">see event</button>
             </div>
           </template>
         </div>
