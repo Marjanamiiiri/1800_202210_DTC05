@@ -16,41 +16,21 @@ function displayCards(collection) {
         let newcard = cardTemplate.content.cloneNode(true);
 
         // update elements of the clone
+        newcard.querySelector(".card-block").href =
+          "sports-events.html?sport=" + doc.id;
         newcard.querySelector(".card-title").innerHTML = title;
         newcard.querySelector(".card-image").src =
           "./images/sports/" + doc.id + ".svg";
 
-        
         // give unique ids to all elements for future use
         // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
 
         // attach to gallery
         document.getElementById(collection + "-go-here").appendChild(newcard);
-        
+
         // i++;
       });
     });
-    // document.querySelector(".card").addEventListener("click", gotoEventsPage);
-    // document.querySelector(".card").onclick = function () {console.log("hey")};
-
-    document.querySelector(".card-block").onclick = function () {console.log("hey")};
 }
 
 displayCards("sports");
-
-function gotoEventsPage() {
-  console.log("hey");
-  // need to get sport! but for now..
-  let sport = 'skiing';
-
-  window.location.href = "sports-events.html?sport=" + sport;
-}
-
-function setup() {
-//   $(".card-block").on("click", gotoEventsPage);
-}
-$(document).ready(setup);
-
-// document.querySelector(".see-event").addEventListener("click", function () {
-//   console.log("hey");
-// });
