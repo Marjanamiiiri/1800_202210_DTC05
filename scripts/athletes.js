@@ -5,7 +5,7 @@ function getEventInfo() {
   return {
     sport: urlParams.get("sport"),
     gender: urlParams.get("gender"),
-    sportevent: urlParams.get("sportevent"),
+    event: urlParams.get("sportevent"),
   };
 }
 
