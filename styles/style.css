@@ -215,3 +215,23 @@ body {
 .containerCenter{ 
   text-align: center;
 }
+/* athletes gender */
+.athlete_box {
+  width: 100%;
+  padding: 50px;
+
+}
+.athlete_img{
+  display: block;
+  border-radius: 10px;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  border: 1px #c1c1c1 solid; 
+  padding: 10px;
+  
+
+}
+.athlete_img a{
+  text-decoration: none;
+}
