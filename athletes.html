@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
-    <title>My OlymPick</title>
+    <title>My OlymPicks</title>
     <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
     <meta name="author" content="BCIT - Team 05" />
 
@@ -45,8 +45,19 @@
       <h1 id="athletes-title">Competitors in...</h1>
       <div id="athletes-go-here">
         <template id="athleteCardTemplate">
-          <p class="athlete-card-name">Namey McNamerson</p>
-          <p class="athlete-card-age">##</p>
+          <div class="card py-3 my-2 mx-2" style="width: 24rem">
+            <a class="card-block stretched-link text-decoration-none" href>
+              <img
+                class="card-image card-img-top"
+                src="..."
+                alt="..."
+                style="height: 100px; width: auto"
+              />
+              <p class="athlete-card-name">Namey McNamerson</p>
+              <p class="athlete-card-age">##</p>
+              <button class="add-to-team">Add to team</button>
+            </a>
+          </div>
         </template>
       </div>
     </div>
