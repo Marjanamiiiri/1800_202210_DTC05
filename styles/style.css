@@ -215,7 +215,6 @@ body {
 .containerCenter{ 
   text-align: center;
 }
-<<<<<<< HEAD
 
 /* myteam.html chart */
 #myteamChart {
@@ -233,7 +232,7 @@ body {
 #CenterTab {
   float: none;
 }
-=======
+
 /* athletes gender */
 .athlete_box {
   width: 100%;
@@ -251,7 +250,7 @@ body {
   
 
 }
-.athlete_img a{
+.athlete_img a {
   text-decoration: none;
 }
->>>>>>> 4f5b934e3122551848256d03d596723a1acfe10a
+
