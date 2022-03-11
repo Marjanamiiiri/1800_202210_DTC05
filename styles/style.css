@@ -215,3 +215,20 @@ body {
 .containerCenter{ 
   text-align: center;
 }
+
+/* myteam.html chart */
+#myteamChart {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/* The Main.html Cards */
+#mainCards {
+  margin: 0, auto;
+  width: 90%;
+}
+
+/* myteam Centering items */
+#CenterTab {
+  float: none;
+}
