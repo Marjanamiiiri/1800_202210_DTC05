@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
-    <title>My OlymPicks</title>
+    <title>My OlymPick</title>
     <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
     <meta name="author" content="BCIT - Team 05" />
 
@@ -34,51 +34,28 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="container">
-      <h1>Winter Sports</h1>
-
-      <div id="container">
-        <div id="sports-go-here" class="row row-cols-auto">
-          <template id="sportCardTemplate">
-            <div class="card py-3 my-2 mx-2" style="width: 14rem">
-              <!-- make it appear clickable (still not working) -->
-              <a class="card-block stretched-link text-decoration-none" href>
-                <img
-                  class="card-image card-img-top"
-                  src="..."
-                  alt="..."
-                  style="height: 140px"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-              </a>
-            </div>
-          </template>
-        </div>
+    <div id="container">
+      <h1 id="athletes-title">Competitors in...</h1>
+      <div id="athletes-go-here">
+        <template id="athleteCardTemplate">
+          <p class="athlete-card-name">Namey McNamerson</p>
+          <p class="athlete-card-age">##</p>
+        </template>
       </div>
     </div>
-
-    <!-- how to generate sub-categories? from collection 'sports' get doc
-  url = 'https://olympics.com/en/beijing-2022/sports/' + doc.id + '/' -->
-
     <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
 
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/sports.js"></script>
+    <script src="./scripts/athletes.js"></script>
   </body>
 </html>

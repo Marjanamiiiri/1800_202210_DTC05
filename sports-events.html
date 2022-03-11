@@ -47,23 +47,12 @@
 
     <div class="container">
       <h1>Winter Sports</h1>
-
       <div id="container">
-        <div id="sports-go-here" class="row row-cols-auto">
-          <template id="sportCardTemplate">
-            <div class="card py-3 my-2 mx-2" style="width: 14rem">
-              <!-- make it appear clickable (still not working) -->
-              <a class="card-block stretched-link text-decoration-none" href>
-                <img
-                  class="card-image card-img-top"
-                  src="..."
-                  alt="..."
-                  style="height: 140px"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-              </a>
+        <div id="gender-categories-go-here" class="row row-cols-auto">
+          <template id="eventCardTemplate">
+            <h2 id="gender-category">Wo|Men's</h2>
+            <div class="events-list">
+              
             </div>
           </template>
         </div>
@@ -79,6 +68,6 @@
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/sports.js"></script>
+    <script src="./scripts/sports-events.js"></script>
   </body>
 </html>
