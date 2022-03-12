@@ -20,6 +20,8 @@ function sayHello() {
 }
 //sayHello();
 
+
+// This is for the compete page, for the group creation
 $(document).ready(function () {
   $("#see-me").click(function () {
     $("#show-me-two:hidden").show("slow");
