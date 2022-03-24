@@ -1,311 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
-    <title>My OlymPicks</title>
-    <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
-    <meta name="author" content="BCIT - Team 05" />
+<head>
+  <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
-    <!-- Bootstrap Library CSS CDN, JS CDN -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>My OlymPicks</title>
+  <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
+  <meta name="author" content="BCIT - Team 05" />
 
-    <!-- Firebase 8 Library related JS CDN, CSS CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <script src="./scripts/nav.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
-    />
+  <!-- Bootstrap Library CSS CDN, JS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Other libraries go here -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="./styles/style.css" />
-  </head>
+  <!-- Firebase 8 Library related JS CDN, CSS CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="./scripts/nav.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-  <body>
-    <!-- Nav Bar -->
-    <nav id="navbarPlaceholder"></nav>
+  <!-- Other libraries go here -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+</head>
 
-    <!-- Jumbotron Title -->
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-1 fw-bold text-center">
-          Welcome to My <span style="color: #003f7d">O</span>lymPicks
-        </h1>
-        <h4 class="display-6 fw-bold text-center">
-          Compete head to head with friends and family. Compare your scores with
-          others in a friendly game and see who the best!
-        </h4>
-        <br /><br />
+<body>
+  <!-- Nav Bar -->
+  <nav id="navbarPlaceholder"></nav>
 
-        <!-- Card Selections-->
-        <div class="m-4">
-          <div class="row row-cols-1 row-cols-md-3 g-3">
-              <div class="col">
-                  <!-- Card with default left text alignment -->
-                  <div class="card text-center">
-                      <div class="card-body">
-                          <img src="images/icons/sports.png" width="50px" height="50px">
-                          <h2 class="card-title"><span style="color: #003f7d">Sports</span> </h2>
-                          <p class="card-text">View the Sports Page</p>
-                          <a href="sports.html" class="button">Click Here</a>
-                      </div>
-                  </div>
+  <!-- Jumbotron Title -->
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-1 fw-bold text-center">
+        Welcome to My <span style="color: #003f7d">O</span>lymPicks
+      </h1>
+      <h4 class="display-6 fw-bold text-center">
+        Compete head to head with friends and family. Compare your scores with
+        others in a friendly game and see who the best!
+      </h4>
+      <br /><br />
+
+      <!-- Card Selections-->
+      <div class="m-4">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+            <!-- Card with default left text alignment -->
+            <div class="card text-center">
+              <div class="card-body">
+                <img src="images/icons/sports.png" width="50px" height="50px">
+                <h2 class="card-title"><span style="color: #003f7d">Sports</span> </h2>
+                <p class="card-text">View the Sports Page</p>
+                <a href="sports.html" class="button">Click Here</a>
               </div>
-              <div class="col">
-                  <!-- Card with center text alignment -->
-                  <div class="card text-center">
-                      <div class="card-body">
-                         <img src="images/icons/myteam.png" width="50px" height="50px"> 
-                          <h2 class="card-title"><span style="color: #003f7d">My Team</span></h2>
-                          <p class="card-text">Check your Team(s)</p>
-                          
-                          <a href="myteam.html" class="button">Click Here</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col">
-              <!-- Card with right text alignment -->
-                  <div class="card text-center">
-                      <div class="card-body">
-                          <img src="images/icons/events.png" width="50px" height="50px">
-                          <h2 class="card-title"><span style="color: #003f7d">Events</span></h2>
-                          <p class="card-text">View Upcoming Events</p>
-                          <a href="sports-events.html" class="button">Click Here</a>
-                      </div>
-                  </div>
-              </div>
+            </div>
           </div>
-      </div>
-        <!-- Card Selections-->
+          <div class="col">
+            <!-- Card with center text alignment -->
+            <div class="card text-center">
+              <div class="card-body">
+                <img src="images/icons/myteam.png" width="50px" height="50px">
+                <h2 class="card-title"><span style="color: #003f7d">My Team</span></h2>
+                <p class="card-text">Check your Team(s)</p>
 
-        <!-- This div says hello to the user that has signed in, connected via main.js -->
-        <div class="container-fluid bg-light text-dark p-5">
-          <div class="text-center">
-            <h1 class="display-4">Hello, <span id="name-goes-here"></span></h1>
+                <a href="myteam.html" class="button">Click Here</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- </div> attached to above commented div-->
-        <div class="text-center">
-          <img
-            src="./images/pngwing.com.png"
-            class="img-fluid"
-            alt="Responsive image"
-          />
+          <div class="col">
+            <!-- Card with right text alignment -->
+            <div class="card text-center">
+              <div class="card-body">
+                <img src="images/icons/events.png" width="50px" height="50px">
+                <h2 class="card-title"><span style="color: #003f7d">Events</span></h2>
+                <p class="card-text">View Upcoming Events</p>
+                <a href="sports-events.html" class="button">Click Here</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <main>
-        <hr />
+
+      </footer>
+      <!-- Card Selections-->
+
+      <!-- This div says hello to the user that has signed in, connected via main.js -->
+      <div class="container-fluid bg-light text-dark p-5">
         <div class="text-center">
-          <h2>Available Events</h2>
+          <h1 class="display-4">Hello, <span id="name-goes-here"></span></h1>
         </div>
-        <hr />
-        <!--This entire div below are the Olympic sports icons-->
-        <div class="clearfix">
-          <div id="center">
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/alpine-skiing.svg"
-                alt="alpine-skiing"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/biathlon.svg"
-                alt="biathlon"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/bobsleigh.svg"
-                alt="bobsleigh"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/cross-country-skiing.svg"
-                alt="cross-country-skiing"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/curling.svg"
-                alt="curling"
-                style="width: 100%"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="clearfix">
-          <div id="center">
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/figure-skating.svg"
-                alt="figure-skating"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/freestyle-skiing.svg"
-                alt="freestyle-skiing"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/ice-hockey.svg"
-                alt="ice-hockey"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/luge.svg"
-                alt="luge"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/nordic-combined.svg"
-                alt="nordic-combined"
-                style="width: 100%"
-              /></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="clearfix">
-          <div id="center">
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/short-track-speed-skating.svg"
-                alt="short-track-speed-skating"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/skeleton.svg"
-                alt="skeleton"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/ski-jumping.svg"
-                alt="ski-jumping"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/snowboarding.svg"
-                alt="snowboarding"
-                style="width: 100%"
-              /></a>
-            </div>
-            <div class="event-container">
-              <a href="./sports-events.html">
-              <img
-                src="./images/sports/speed-skating.svg"
-                alt="speed-skating"
-                style="width: 100%"
-              /></a>
-            </div>
-          </div>
-        </div>
-      </main>
-      <!--This below is our scoreboard, may be changed in the future-->
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Names</th>
-            <th scope="col">Position Change</th>
-            <th scope="col">Points</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Terence</td>
-            <td>+2</td>
-            <td>27</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Marjan</td>
-            <td>+1</td>
-            <td>23</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Wallace</td>
-            <td>9</td>
-            <td>7</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Bob</td>
-            <td>0</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Tom</td>
-            <td>0</td>
-            <td>1</td>
-          </tr>
-        </tbody>
-      </table>
+      </div>
+      <!-- </div> attached to above commented div-->
+      <div class="text-center">
+        <img src="./images/pngwing.com.png" class="img-fluid" alt="Responsive image" />
+      </div>
     </div>
-    <nav id="footerPlaceholder"></nav>
-    <!-- Javascript scripts -->
-    <script src="./scripts/firebaseAPI_TEAM05.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/main.js"></script>
-  </body>
+    <main>
+      <hr />
+      <div class="text-center">
+        <h2>Available Events</h2>
+      </div>
+      <hr />
+      <!--This entire div below are the Olympic sports icons-->
+      <div class="clearfix">
+        <div id="center">
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/alpine-skiing.svg" alt="alpine-skiing" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/biathlon.svg" alt="biathlon" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/bobsleigh.svg" alt="bobsleigh" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/cross-country-skiing.svg" alt="cross-country-skiing" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/curling.svg" alt="curling" style="width: 100%" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <div id="center">
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/figure-skating.svg" alt="figure-skating" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/freestyle-skiing.svg" alt="freestyle-skiing" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/ice-hockey.svg" alt="ice-hockey" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/luge.svg" alt="luge" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/nordic-combined.svg" alt="nordic-combined" style="width: 100%" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix">
+        <div id="center">
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/short-track-speed-skating.svg" alt="short-track-speed-skating"
+                style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/skeleton.svg" alt="skeleton" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/ski-jumping.svg" alt="ski-jumping" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/snowboarding.svg" alt="snowboarding" style="width: 100%" /></a>
+          </div>
+          <div class="event-container">
+            <a href="./sports-events.html">
+              <img src="./images/sports/speed-skating.svg" alt="speed-skating" style="width: 100%" /></a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!--This below is our scoreboard, may be changed in the future-->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Names</th>
+          <th scope="col">Position Change</th>
+          <th scope="col">Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Terence</td>
+          <td>+2</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Marjan</td>
+          <td>+1</td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Wallace</td>
+          <td>9</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Bob</td>
+          <td>0</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Tom</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <nav id="footerPlaceholder"></nav>
+  <!-- Javascript scripts -->
+  <script src="./scripts/firebaseAPI_TEAM05.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/authentication.js"></script>
+  <script src="./scripts/main.js"></script>
+</body>
+
 </html>
