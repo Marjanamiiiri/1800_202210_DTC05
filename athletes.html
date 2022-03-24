@@ -23,7 +23,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link
       type="text/css"
       rel="stylesheet"
@@ -37,31 +40,36 @@
     />
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
-
   <body>
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
     <div id="container">
       <h1 id="athletes-title">Competitors in...</h1>
-      <div id="athletes-go-here">
-        <template id="athleteCardTemplate">
-          <div class="card py-3 my-2 mx-2" style="width: 24rem">
-            <a class="card-block stretched-link text-decoration-none" href>
-              <img
-                class="card-image card-img-top"
-                src="..."
-                alt="..."
-                style="height: 100px; width: auto"
-              />
-              <p class="athlete-card-name">Namey McNamerson</p>
-              <p class="athlete-card-age">##</p>
-              <button class="add-to-team">Add to team</button>
-            </a>
-          </div>
-        </template>
+      <div id="athletes-go-here" class="row row-cols-auto">
+        <!-- template cards go here -->
       </div>
     </div>
+
+    <!-- template kept separate -->
+    <template id="athleteCardTemplate">
+      <div class="card py-3 my-2 mx-2" style="width: 16rem">
+        <a class="card-block stretched-link text-decoration-none" href>
+          <div class="add-button-container">
+            <i class="material-icons add-button">add</i>
+          </div>
+          <img
+            class="card-image card-img-top"
+            src="..."
+            alt="..."
+            style="height: 100px; width: auto"
+          />
+          <p class="athlete-card-name">Namey McNamerson</p>
+          <p class="athlete-card-age">##</p>
+        </a>
+      </div>
+    </template>
+
     <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
 

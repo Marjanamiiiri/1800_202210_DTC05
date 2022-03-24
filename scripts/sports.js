@@ -5,11 +5,9 @@ function displayCards(collection) {
     .get()
     .then((snap) => {
       var i = 1;
-      snap.forEach((doc) => {
-        // iterate thru each doc
-
+      snap.forEach((doc) => { // iterate thru each doc
         // set some variable to data from database document
-        var title = doc.data().name;
+        var title = doc.id;
         var photo = "./images/sports/" + doc.data().image;
 
         // clone the template
@@ -32,5 +30,4 @@ function displayCards(collection) {
       });
     });
 }
-
 displayCards("sports");

@@ -235,6 +235,11 @@ ul li:hover {
 
 }
 
+.athletes-go-here .card-block{
+  background-color: #8ecae6 !important;
+  color: blueviolet !important;
+}
+
 .athlete_img{
   display: block;
   border-radius: 10px;
@@ -243,8 +248,17 @@ ul li:hover {
   text-align: center;
   border: 1px #c1c1c1 solid;
   padding: 10px;
+}
 
-
+.add-button-container {
+  width: 25px;
+  height: 25px;
+  background-color: green;
+  border-radius: 5px;
+  float: right;
+}
+.add-button{
+  color: white;
 }
 
 .athlete_img a {

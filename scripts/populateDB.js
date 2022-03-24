@@ -4,24 +4,22 @@ $(document).ready(function () {
     url: "./text/athlete_events.tsv",
     dataType: "text",
     success: function (data) {
-      // processData(data);         // do all the things!
+      processData(data); // do all the things!
     },
   });
 });
 
 function processData(allText) {
-  //   var columns = 14; // number of columns
   var allTextLines = allText.split(/\r\n|\n/);
   var headings = allTextLines[0].split("\t");
-  //   var headings = headings.splice(0, columns);
-
   var allSportsEvents = {};
   var athletesDict = {};
 
   // go through each line and build dictionary
-  for (row = 1; row < allTextLines.length; row += 10) {
-  // for (row = 1; row < 2000; row += 5) {
+  // for (row = 1; row < allTextLines.length; row += 10) {
+  for (row = 1; row < allTextLines.length; row += 4) {
     let textLine = allTextLines[row].split("\t");
+    // console.log(textLine);
     // skip weird names
     if (/"|\(|\)/.test(textLine[1])) {
       continue;
@@ -30,44 +28,57 @@ function processData(allText) {
     let athleteID = parseInt(textLine[0]);
     let currAthlete = {};
 
-    for (field = 1; field < 8; field++) {
+    // got through each column (total: 10) in table (up to not incl Event)=> field in firestore doc
+    for (field = 1; field < 9; field++) {
       let fieldValue = textLine[field];
-      if (field > 2 && field < 6) {
+      if (field > 5) {
         fieldValue = parseInt(fieldValue);
       }
-      // else if (field == 1)
-      // make weird names less weird
-      // fieldValue = formatName(fieldValue);
       currAthlete[headings[field].toLowerCase()] = fieldValue;
     }
 
     // break up 'Events' value into [whole_string, sport, sex, event]
     const re = /(\w+)\s(Men's|Women's|Mixed)\s(.+)/;
-    let eventArr = re.exec(textLine[13]);
-    let sport = textLine[12];
+    let eventArr = re.exec(textLine[9]);
+    // console.log(eventArr);
+    let sport = textLine[5];
     let gender = eventArr[2];
     let event = eventArr[3];
-    
-    // make sure sport is in dict of all sports events
-    // used for building collection of events
+
+    // db.collection("sports")
+    //       .doc(sport)
+    //       .collection(gender)
+    //       .document(event)
+    //       .set({ athletes: firebase.firestore.FieldValue.arrayUnion(athleteID)}, { merge: true })
+    //       .then(function () {
+    //         console.log(athleteID +" added to "+ sport +'>'+ gender +'>'+ event);
+    //       });
+
     if (!(sport in allSportsEvents)) {
       allSportsEvents[sport] = {
-        "Men's": new Set(),
-        "Women's": new Set(),
-        Mixed: new Set(),
+        "Men's": {},
+        "Women's": {},
+        Mixed: {},
       };
     }
     // then add the particular
-    allSportsEvents[sport][gender].add(event);
+    if (event in allSportsEvents[sport][gender]) {
+      allSportsEvents[sport][gender][event].push(athleteID);
+    } else {
+      allSportsEvents[sport][gender][event] = [athleteID];
+    }
 
     // athlete repeated (diff sport or gender or event)
     if (athleteID in athletesDict) {
       let existingSportArr = athletesDict[athleteID].sport;
-      console.log(athleteID, "is in multiple events!");
-      if (sport == athletesDict[athleteID].sport && gender == athletesDict[athleteID].genders) {
+      // console.log(athleteID, "is in multiple events");
+      if (
+        sport == athletesDict[athleteID].sport &&
+        gender == athletesDict[athleteID].genders
+      ) {
         athletesDict[athleteID].events.push(event);
       } else {
-        console.log(athleteID, "is in multiple sports!");
+        console.log(athleteID, "is in multiple sports");
       }
     } else {
       currAthlete["sport"] = sport;
@@ -76,27 +87,19 @@ function processData(allText) {
       athletesDict[athleteID] = currAthlete;
     }
   }
-  
-  // console.log(athletesDict);
-  // console.log(allSportsEvents);
-  {// all fields:
-  // 0: "ID"        integer
-  // 1: "Name"
-  // 2: "Sex"
-  // 3: "Age"       integer
-  // 4: "Height"    integer
-  // 5: "Weight"    integer
-  // 6: "Team"
-  // 7: "NOC"
-  // 8: "Games"     X
-  // 9: "Year"      X
-  // 10: "Season"   X
-  // 11: "City"     X
-  // 12: "Sport"    X
-  // 13: "Event"
+  // delete empty genders (Mixed)
+  for (const [sport, sex] of Object.entries(allSportsEvents)) {
+    for (const [gender, event] of Object.entries(sex)) {
+      if (Object.keys(event).length === 0) {
+        delete allSportsEvents[sport][gender];
+      }
+    }
   }
-  writeAthletes(athletesDict);      // write to athletes collection
-  // writeEvents(allSportsEvents);     // write to sports collection
+  // console.log(athletesDict);
+  // writeAthletes(athletesDict);      // write to athletes collection
+
+  // console.log(allSportsEvents);
+  // writeEvents(allSportsEvents); // write to sports collection
 }
 
 function writeAthletes(athletes) {
@@ -109,24 +112,42 @@ function writeAthletes(athletes) {
     }
   }
 }
+
+// redo as: gender(coll) > sport(doc) > event(field) > [athletes]
 function writeEvents(events) {
-  for (const [sport, subsport] of Object.entries(events)) {
+  // console.log(events);
+  // {sport: {gender: {event: [athletes]}}}
+  for (const [sport, gender] of Object.entries(events)) {
     sportID = sport.replaceAll(" ", "-").toLowerCase();
-    // console.log(sportID, subsport);
-    for (const [sex, event] of Object.entries(subsport)) {
-      eventArr = Array.from(event);
-      if (eventArr.length > 0) {
-        // console.log(sex, eventArr);
-        db.collection("sports")
-          .doc(sportID)
-          .set({ name: sport, [sex]: eventArr }, { merge: true });
+    // console.log(sportID, gender);
+    for (const [sex, events] of Object.entries(gender)) {
+      // eventArr = Array.from(event);
+      for (const [event, athletesList] of Object.entries(events)) {
+        if (athletesList.length > 0) {
+          console.log(sportID, sex, event, athletesList);
+          db.collection("sports")
+            .doc(sportID)
+            // .set({ name: sport}, { merge: true })
+            .collection(sex)
+            .doc(event)
+            .set({athletes: athletesList}, { merge: true })
+            .then(function () {
+              // console.log(sport, sex, event, athletesList);
+            });
+        }
       }
     }
+    // if (eventArr.length > 0) {
+    //   console.log(sex, eventArr);
+    //   db.collection("sports")
+    //     .doc(sportID)
+    //     .set({ name: sport, [sex]: eventArr }, { merge: true });
+    // }
   }
 }
 //  db.collection("athletes-test").doc(docname).set()
 
-// fixes incorrectly created sports fields in process data
+// fixes incorrectly created sports fields for athlete documents
 function adjustSportFields() {
   db.collection("athletes")
     .get()
@@ -162,3 +183,17 @@ function formatName(name) {
   const nameArr = re.exec(name);
   return nameArr;
 }
+
+// found on the web:
+const recursiveSearch = (obj, searchKey, results = []) => {
+  const r = results;
+  Object.keys(obj).forEach((key) => {
+    const value = obj[key];
+    if (key === searchKey && typeof value !== "object") {
+      r.push(value);
+    } else if (typeof value === "object") {
+      recursiveSearch(value, searchKey, r);
+    }
+  });
+  return r;
+};
