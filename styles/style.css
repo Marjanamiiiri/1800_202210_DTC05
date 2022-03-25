@@ -200,7 +200,8 @@ ul li:hover {
 /* athletes gender */
 .athlete_box {
   width: 100%;
-  padding: 50px;
+  padding: 10px;
+  margin: 20px;
 
 }
 
@@ -217,6 +218,7 @@ ul li:hover {
   text-align: center;
   border: 1px #c1c1c1 solid;
   padding: 10px;
+  margin: 5px;
 }
 
 .add-button-container {
