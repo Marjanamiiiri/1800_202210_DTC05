@@ -6,16 +6,6 @@
 }
  /* Nav and Header CSS(start) */
 a {text-decoration: none;}
-header {
-  padding: 0 20px;
-  /* background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700445102.jpg"); */
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  background: #007bff;
-  /* another opetion */
-  background: linear-gradient(to left, #ff8e00, #53b4f5);
-}
 #brand {
   font-size: 18px;
   display: flex;
@@ -27,72 +17,27 @@ header {
   color: #0000;
   -webkit-background-clip: text;
   background-clip: text;
+  margin-right: 5px;
 }
-ul {
-  list-style: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.btn-outline-info {
+  border-color: #3c7da8;
+  color: #3c7da8;
+}
+.btn-outline-info:hover {
+  color: #a0a0a0;
+  background-color: #3c7da8;
+  border-color: #3c7da8
+}
+#navbarSupportedContent{
+  background: linear-gradient(90deg,
+      white,
+      #e0eaf5,
+      #c0c0c0e7);
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 
-}
-ul a {
-  color: white;
-}
-ul li {
-  padding: 5px;
-  margin-left: 10px;
-}
-ul li:hover {
-    color: #53b4f5;
-    transform: scale(1.1);
-    transition: 0.3s;
-}
-
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  height: auto;
-  width: 100%;
-  padding: 10px;
-  box-shadow: 0px 15px 35px rgb(77, 77, 77);
-
-}
-.open .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
- /* background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700445102.jpg"); */
-}
-.mobile-menu li {
-  margin-bottom: 10px;
-}
-#hamburger-icon {
-  margin: auto 0;
-  display: none;
-  cursor: pointer;
-}
-#hamburger-icon div {
-  width: 35px;
-  height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-.open .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-  transform: rotate(-45deg) translate(-6px, 6px);
-}
-.open .bar2 {
-  opacity: 0;
-}
-.open .bar3 {
-  -webkit-transform: rotate(45deg) translate(-6px, -8px);
-  transform: rotate(45deg) translate(-6px, -8px);
-}
 /* Nav and Header CSS(finish) */
 
 /* Footer css(start) */
@@ -200,7 +145,8 @@ ul li:hover {
 /* athletes gender */
 .athlete_box {
   width: 100%;
-  padding: 50px;
+  padding: 10px;
+  margin: 20px;
 
 }
 
@@ -217,6 +163,7 @@ ul li:hover {
   text-align: center;
   border: 1px #c1c1c1 solid;
   padding: 10px;
+  margin: 5px;
 }
 
 .add-button-container {
