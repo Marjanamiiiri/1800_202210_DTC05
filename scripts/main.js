@@ -15,4 +15,6 @@ function getCurrentUser() {
         }
     });
 }
-getCurrentUser()
+getCurrentUser();
+
+// export {currentUser, getCurrentUser};

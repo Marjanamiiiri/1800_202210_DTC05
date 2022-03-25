@@ -1,3 +1,5 @@
+// import { currentUser, getCurrentUser } from "./main.js";
+
 // page url should look something like:
 // athletes.html?sport=Skating&gender=Women%27s&sportevent=1,000m
 function getEventInfo() {
@@ -27,7 +29,7 @@ function getCurrentUser() {
 }
 getCurrentUser();
 
-// console.log("current user is " + currentUser);
+console.log("current user is " + currentUser);
 
 function displayCards(collection) {
   // "athletes"
@@ -49,15 +51,18 @@ function displayCards(collection) {
   db.collection(`sports/${eventInfo.sport}/${eventInfo.gender}`)
     .doc(eventInfo.event)
     .get()
-    .then(eventDoc => {
+    .then((eventDoc) => {
       var athletesInEvent = eventDoc.data().athletes;
-      athletesInEvent.forEach(a => {
+      athletesInEvent.forEach((a) => {
         // console.log(a);
         db.collection("athletes")
-          .doc(a + '')
+          .doc(a + "")
           .get()
-          .then(athleteDoc => {
-            if (!(athleteDoc.exists)) { console.log(a, 'does not exist'); return; }
+          .then((athleteDoc) => {
+            if (!athleteDoc.exists) {
+              console.log(a, "does not exist");
+              return;
+            }
             // console.log(athleteDoc);
             var name = athleteDoc.data().name;
             var age = athleteDoc.data().age;
@@ -75,37 +80,25 @@ function displayCards(collection) {
             newcard.querySelector(".athlete-card-age").innerHTML = age;
             newcard.querySelector(".card").setAttribute("id", athleteDoc.id);
 
-            newcard.querySelector("a").href = "./athlete-info.html?id=" + athleteDoc.id;
-            newcard.querySelector("i").onclick = () => addToTeam(currentUser, athleteDoc.id);
+            newcard.querySelector("a").href =
+              "./athlete-info.html?id=" + athleteDoc.id;
+            newcard.querySelector("i").onclick = () =>
+              addToTeam(currentUser, athleteDoc.id);
             // if (userTeam.includes(athleteDoc.id)) {
             //   newcard.querySelector("i").innerHTML = "bookmark";
             // }
 
-            document.getElementById(collection + "-go-here").appendChild(newcard);
+            document
+              .getElementById(collection + "-go-here")
+              .appendChild(newcard);
           });
       });
     });
 }
 
-
-function diplayAthletes() {
-  eventSelection = $("#event-selection").val();
-  // console.log(eventSelection);
-}
-
-function toTitleCase(str) {
-  return str
-    .toLowerCase()
-    .split(" ")
-    .map(function (word) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    })
-    .join(" ");
-}
-
 function addToTeam(currentUser, athlete) {
   currentUser.get().then((userDoc) => {
-    user = user.data()
+    user = user.data();
     console.log(user.name, user.bookmarks);
     if (user.data().bookmarks.includes(athlete)) {
       currentUser
@@ -137,10 +130,25 @@ function addToTeam(currentUser, athlete) {
           console.log("bookmark has been saved for: " + currentUser);
           var iconID = "save-" + athlete;
           //console.log(iconID);
-          document.getElementById(iconID).innerText = "add";
+          document.getElementById(iconID).innerText = "person_add";
         });
     }
   });
+}
+
+function diplayAthletes() {
+  eventSelection = $("#event-selection").val();
+  // console.log(eventSelection);
+}
+
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(" ");
 }
 
 function setup() {
