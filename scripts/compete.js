@@ -80,8 +80,8 @@ function writeGroups() {
 
 //Grabs groups that were made by users and add them into cards
 function populateCardsDynamically() {  //Add sortkey into the parameter?
-  let groupsCardTemplate = document.getElementById("groupCardTemplate");
-  let groupsCardGroup = document.getElementById("hikeCardGroup");
+  let groupsCardTemplate = document.getElementById("groupsCardTemplate");
+  let groupsCardGroup = document.getElementById("groupsCardGroup");
   
   db.collection("Hikes")
   .orderBy("length_time", "desc")      //NEW LINE;  what do you want to sort by?
