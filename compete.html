@@ -65,29 +65,29 @@
                <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create Group</h2>
                 <fieldset class="mb-3" id="personalInfoFields" disabled>
                     <div class="form-group">
-                        <label>Group Name</label>
-                        <input type="text" id="GroupNameInput" class="form-control" placeholder="Enter your group name">
+                      <label>Your Name</label>
+                      <input type="text" id="nameInput" class="form-control" placeholder="Your Name">
+                      <label>Group Name</label>
+                      <input type="text" id="groupInput" class="form-control" placeholder="Enter your group name">
+                      <label>Your Team Name</label>
+                      <input type="text" id="teamInput" class="form-control" placeholder="Enter your team name">
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
                     <span style="width: 10px"></span>
-                    <button type="submit" class="btn btn-dark" onclick="CreateGroupInfo()">Submit</button>
+                    <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" >Submit<a href="#" target="_blank"></a></button>
                 </div>
             </form>
         </div>
             </div>
                <div id='show-me-three' style='text-align: center; border:2px solid #ccc'><h2>Join Group</h2>
-                <li>
-                  Family Group
-                </li>
-                <li>
-                 Friends Group
-               </li>
-               <li>
-                 Work Group
-               </li></div>
-
-                 
+                    <div id="groupsCardGroup" class="row row-cols-auto">
+                      <i class="material-icons">bookmark_border</i>
+                    </div>
+            
+            
+            
+               </div>     
         </div>
        </div>
 

@@ -59,13 +59,14 @@
       <ul class="pagination pagination-lg">
         <li class="page-item disabled">
           May use this line <a class="page-link" href="#" tabindex="-1">Family Group</a> -->
+          <ul>
         </li>
         <li class="page-item">
-          <a class="page-link" href="#">Friends Group</a>
+          <a class="page-link" href="#">Friends Group</a>  <!--the groupname should be taken firebase collection-->
         </li>
         <li class="page-item"><a class="page-link" href="#">Work Group</a></li>
       </ul>
-    </nav> -->
+    </nav>
     <div id="myteamChart">
       <div class="containerChart">
         <div class="row">
@@ -73,14 +74,67 @@
             <table class="table table-image">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
+                  <th scope="col">Athlete</th>
                   <th scope="col">Sport Event</th>
-                  <th scope="col"></th>
                   <th scope="col">Points</th>
                 </tr>
               </thead>
               <tbody>
-
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>  <!--Athelete key with the sport-->
+                  <td>Curling</td>  <!--Sport that is attached to that athlete-->
+                  <td>3</td>  <!--Points gained from key athlete-->
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Figure Skating</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Freestyle Skiing</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Ice Hockey</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Luge</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Short Track Speed Skating</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Skeleton</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Ski Jumping</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Snowboarding</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td>Speed Skating</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                  <th scope="col">18</th>
+                </tr>
               </tbody>
               <!-- <tbody>
                 <tr>
@@ -263,5 +317,6 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/myteam.js"></script>
+    <script src="./scripts/compete.js"></script>
   </body>
 </html>

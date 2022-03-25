@@ -167,14 +167,16 @@ a {text-decoration: none;}
 }
 
 .add-button-container {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   background-color: green;
   border-radius: 5px;
   float: right;
+  z-index: 1;
 }
 .add-button{
   color: white;
+
 }
 
 .athlete_img a {
