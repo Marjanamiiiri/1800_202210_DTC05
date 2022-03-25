@@ -83,12 +83,12 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
   let groupsCardTemplate = document.getElementById("groupsCardTemplate");
   let groupsCardGroup = document.getElementById("groupsCardGroup");
   
-  db.collection("Hikes")
-  .orderBy("length_time", "desc")      //NEW LINE;  what do you want to sort by?
-  .limit(2)                 //NEW LINE:  how many do you want to get? ** Allows you to limit the amount of the collection **
+  db.collection("Groups")
+  .orderBy("Group Name", "Team Name")      //NEW LINE;  what do you want to sort by?
+  .limit(8)                 //NEW LINE:  how many do you want to get? ** Allows you to limit the amount of the collection **
   .get()
-  .then(allHikes => {
-      allHikes.forEach(doc => {  // forEach goes through each doc
+  .then(allGroup => {
+      allGroup.forEach(doc => {  // forEach goes through each doc
           var userName = doc.data().name; //gets the name field
           var userGroup = doc.data().id; //gets the group field
           var userTeam = doc.data().length; //gets the team field
@@ -103,12 +103,12 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
 
           testGroupCard.querySelector('a').onclick = () => setGroupData(userGroup);
 
-          //which group to bookmark based on which hike was clicked
+          //which group to bookmark based on which group was clicked
           testGroupCard.querySelector('i').id = 'save-' + userGroup;
-          // this line will call a function to save the hikes to the user's document             
+          // this line will call a function to save the groups to the user's document             
           testGroupCard.querySelector('i').onclick = () => saveBookmark(userGroup);
 
-          testGroupCard.querySelector('.read-more').href = "eachGroup.html?hikeName="+userName +"&id=" + userGroup;
+          testGroupCard.querySelector('.read-more').href = "eachGroup.html?groupName="+userName +"&id=" + userGroup;
 
           testGroupCard.querySelector('img').src = `./${userGroup}.jpg`;
           groupsCardGroup.appendChild(testGroupCard);
