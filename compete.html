@@ -60,15 +60,17 @@
                </div>
                <!--For the text box for group name submission-->
                <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create Group</h2>
-                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <fieldset class="mb-3" id="teamInfoFields" disabled>
                     <div class="form-group">
                         <label>Group Name</label>
                         <input type="text" id="GroupNameInput" class="form-control" placeholder="Enter your group name">
+                        <label>Your Team Name</label>
+                        <input type="text" id="teamInput" class="form-control" placeholder="Enter your team name">
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
                     <span style="width: 10px"></span>
-                    <button type="submit" class="btn btn-dark" onclick="CreateGroupInfo()">Submit</button>
+                    <button type="button" class="btn btn-secondary" onclick="saveUserInfo()">Submit</button>
                 </div>
             </form>
         </div>
