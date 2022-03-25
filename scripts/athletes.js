@@ -3,58 +3,90 @@
 function getEventInfo() {
   const urlParams = new URLSearchParams(window.location.search);
   return {
-    sport: toTitleCase(urlParams.get("sport").replace("-", " ")),
+    sport: urlParams.get("sport"),
+    sporttitle: toTitleCase(urlParams.get("sport").replace("-", " ")),
     gender: urlParams.get("gender"),
     event: urlParams.get("event"),
   };
 }
 
+function getCurrentUser() {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      currentUser = db.collection("users").doc(user.uid);
+      currentUser.get().then((userDoc) => {
+        var user_Name = userDoc.data().name;
+        // console.log("athletes.js: " + user_Name + ", " + user.uid);
+        displayCards("athletes");
+        // updateAthletesAddedStatus();
+      });
+    } else {
+      console.log("No user is logged in.");
+    }
+  });
+}
+getCurrentUser();
+
+// console.log("current user is " + currentUser);
+
 function displayCards(collection) {
+  // "athletes"
   eventInfo = getEventInfo();
   // console.log(eventInfo);
+
   document.getElementById("athletes-title").innerHTML =
     "Competitors in " + eventInfo.gender + " " + eventInfo.event;
 
-  let cardTemplate = document.getElementById("athleteCardTemplate");
-  // var athletesRef = db.collection(collection);
-  // use currEvent to query firestore and get all athletes for this event
-  //  var query = athletesRef.where("events", "array-contains", sportEvent);
-  db.collection(collection)
-    .where("sport", "==", eventInfo.sport)
-    // .where("genders", "==", eventInfo.gender)
-    // .where("events", "==", eventInfo.event)
+  console.log("current user is " + currentUser);
+  //get user team info to update "added" status on athlete cards
+  var userTeam;
+  currentUser.get().then((userDoc) => {
+    userTeam = userDoc.data().team; // array of athlete ids
+    userTeamName = userDoc.data().teamname; // string
+    console.log("Team " + userTeamName + " contains " + userTeam);
+  });
+
+  db.collection(`sports/${eventInfo.sport}/${eventInfo.gender}`)
+    .doc(eventInfo.event)
     .get()
-    .then((snap) => {
-      snap.forEach((doc) => {
-        console.log(doc.data().name);
-        var name = doc.data().name;
-        var age = doc.data().age;
-        var pic = "./images/athletes/women_outline.png";
-        if (doc.data().sex == "M") {
-          pic = "./images/athletes/men_outline.png";
-        }
+    .then(eventDoc => {
+      var athletesInEvent = eventDoc.data().athletes;
+      athletesInEvent.forEach(a => {
+        // console.log(a);
+        db.collection("athletes")
+          .doc(a + '')
+          .get()
+          .then(athleteDoc => {
+            if (!(athleteDoc.exists)) { console.log(a, 'does not exist'); return; }
+            // console.log(athleteDoc);
+            var name = athleteDoc.data().name;
+            var age = athleteDoc.data().age;
+            var pic = "./images/athletes/women_outline.png";
+            if (athleteDoc.data().sex == "M") {
+              pic = "./images/athletes/men_outline.png";
+            }
 
-        // clone the template
-        let newcard = cardTemplate.content.cloneNode(true);
+            // clone the template
+            let newcard = athleteCardTemplate.content.cloneNode(true);
+            // update elements of the clone
+            newcard.querySelector(".card-image").src = pic;
+            newcard.querySelector(".card-image").alt = name;
+            newcard.querySelector(".athlete-card-name").innerHTML = name;
+            newcard.querySelector(".athlete-card-age").innerHTML = age;
+            newcard.querySelector(".card").setAttribute("id", athleteDoc.id);
 
-        // update elements of the clone
-        // newcard.querySelector("a").href = `./athlete-bio.html?id=${doc.id}`;
-        newcard.querySelector(".card-image").src = pic;
-        newcard.querySelector(".card-image").alt = name;
-        newcard.querySelector(".athlete-card-name").innerHTML = name;
-        newcard.querySelector(".athlete-card-age").innerHTML = age;
+            newcard.querySelector("a").href = "./athlete-info.html?id=" + athleteDoc.id;
+            newcard.querySelector("i").onclick = () => addToTeam(currentUser, athleteDoc.id);
+            // if (userTeam.includes(athleteDoc.id)) {
+            //   newcard.querySelector("i").innerHTML = "bookmark";
+            // }
 
-        newcard.querySelector(".card").setAttribute("id", doc.id);
-        // attach to gallery
-        document.getElementById(collection + "-go-here").appendChild(newcard);
+            document.getElementById(collection + "-go-here").appendChild(newcard);
+          });
       });
-    })
-    .catch((error) => {
-      console.log("Error getting athletes: ", error);
     });
 }
 
-displayCards("athletes");
 
 function diplayAthletes() {
   eventSelection = $("#event-selection").val();
@@ -71,7 +103,48 @@ function toTitleCase(str) {
     .join(" ");
 }
 
+function addToTeam(currentUser, athlete) {
+  currentUser.get().then((userDoc) => {
+    user = user.data()
+    console.log(user.name, user.bookmarks);
+    if (user.data().bookmarks.includes(athlete)) {
+      currentUser
+        .set(
+          {
+            bookmarks: firebase.firestore.FieldValue.arrayRemove(athlete),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("bookmark has been removed for: " + currentUser);
+          var iconID = "save-" + athlete;
+          //console.log(iconID);
+          document.getElementById(iconID).innerText = "done";
+        });
+    } else {
+      currentUser
+        .set(
+          {
+            bookmarks: firebase.firestore.FieldValue.arrayUnion(athlete),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          var iconID = "save-" + athlete;
+          //console.log(iconID);
+          document.getElementById(iconID).innerText = "add";
+        });
+    }
+  });
+}
+
 function setup() {
   $("#get-event-selection").click(diplayAthletes);
+  // $(".add-to-team").click(addToTeam);
 }
 $(document).ready(setup);

@@ -34,28 +34,29 @@
   <!-- Nav Bar -->
   <nav id="navbarPlaceholder"></nav>
 
-  <div class="container">
-    <h1>Winter Sports</h1>
-
-    <div id="container">
-      <div id="sports-go-here" class="row row-cols-auto">
-        <template id="sportCardTemplate">
-          <div class="card py-3 my-2 mx-2" style="width: 14rem">
-            <!-- make it appear clickable (still not working) -->
-            <a class="card-block stretched-link text-decoration-none" href>
-              <img class="card-image card-img-top" src="..." alt="..." style="height: 140px" />
-              <div class="card-body">
-                <h5 class="card-title text-center m11">Card title</h5>
-              </div>
-            </a>
-          </div>
-        </template>
+      <div id="container" style="margin-left: 30px; margin-top: 50px; padding: 20px;">
+        <div id="sports-go-here" class="row row-cols-auto"></div>
       </div>
     </div>
   </div>
 
-  <!-- how to generate sub-categories? from collection 'sports' get doc
-  url = 'https://olympics.com/en/beijing-2022/sports/' + doc.id + '/' -->
+    <!-- template for sport cards kept separate  -->
+    <template id="sportCardTemplate">
+      <div class="card py-3 my-2 mx-2" style="width: 14rem">
+        <!-- make it appear clickable (still not working) -->
+        <a class="card-block stretched-link text-decoration-none" href>
+          <img
+            class="card-image card-img-top"
+            src="..."
+            alt="..."
+            style="height: 140px"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center m11">Card title</h5>
+          </div>
+        </a>
+      </div>
+    </template>
 
   <!-- Footer -->
   <nav id="footerPlaceholder"></nav>

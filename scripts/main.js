@@ -1,19 +1,18 @@
-// greets user by their given name
+var currentUser;
 
-function insertName() {
-    firebase.auth().onAuthStateChanged(user => {
+function getCurrentUser() {
+    firebase.auth().onAuthStateChanged((user) => {
         // Check if user is loged in:
         if (user) {
-            console.log(user.uid); //display user who just logged in
             currentUser = db.collection("users").doc(user.uid); //get doc associated with user
-            currentUser.get().then(userDoc => {
-               var user_Name = userDoc.data().name;
-               console.log(user_Name);
-               $("#name-goes-here").text(user_Name); //set text of html element to username
-            })
+            currentUser.get().then((userDoc) => {
+            var user_Name = userDoc.data().name;
+            console.log("main.js: " + user_Name + ", " + user.uid);
+            $("#name-goes-here").text(user_Name); //set text of html element to username
+            });
         } else {
-            console.log("No user is logged in.")
+            console.log("No user is logged in.");
         }
     });
 }
-insertName();
+getCurrentUser()
