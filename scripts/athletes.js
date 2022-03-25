@@ -11,23 +11,23 @@ function getEventInfo() {
     event: urlParams.get("event"),
   };
 }
-
-function getCurrentUser() {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      currentUser = db.collection("users").doc(user.uid);
-      currentUser.get().then((userDoc) => {
-        var user_Name = userDoc.data().name;
-        // console.log("athletes.js: " + user_Name + ", " + user.uid);
-        displayCards("athletes");
-        // updateAthletesAddedStatus();
-      });
-    } else {
-      console.log("No user is logged in.");
-    }
-  });
-}
-getCurrentUser();
+currentUser = localStorage.getItem("user");
+// function getCurrentUser() {
+//   firebase.auth().onAuthStateChanged((user) => {
+//     if (user) {
+//       currentUser = db.collection("users").doc(user.uid);
+//       currentUser.get().then((userDoc) => {
+//         var user_Name = userDoc.data().name;
+//         // console.log("athletes.js: " + user_Name + ", " + user.uid);
+//         displayCards("athletes");
+//         // updateAthletesAddedStatus();
+//       });
+//     } else {
+//       console.log("No user is logged in.");
+//     }
+//   });
+// }
+// getCurrentUser();
 
 console.log("current user is " + currentUser);
 
