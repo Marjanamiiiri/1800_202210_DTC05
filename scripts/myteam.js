@@ -1,3 +1,5 @@
+// need to add getUser function that calls displaycards
+
 function displayCards(collection) {
     var userTeam;
     currentUser.get().then((userDoc) => {
