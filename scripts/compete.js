@@ -107,7 +107,6 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
           testGroupCard.querySelector('i').id = 'save-' + userGroup;
           // this line will call a function to save the groups to the user's document             
           testGroupCard.querySelector('i').onclick = () => saveBookmark(userGroup);
-
           testGroupCard.querySelector('.read-more').href = "eachGroup.html?groupName="+userName +"&id=" + userGroup;
 
           testGroupCard.querySelector('img').src = `./${userGroup}.jpg`;
@@ -116,6 +115,22 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
 
       })
 }
+
+
+function saveBookmark(userGroup) {
+  currentUser.set({
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(userGroup)
+      }, {
+          merge: true
+      })
+      .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          var iconID = 'save-' + userGroup;
+          //console.log(iconID);
+          document.getElementById(iconID).innerText = 'bookmark';
+      });
+}
+
 
 
 jQuery(document).ready(setup);
