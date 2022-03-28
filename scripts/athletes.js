@@ -34,7 +34,7 @@ getCurrentUser();
 function displayCards(collection) {
   // "athletes"
   eventInfo = getEventInfo();
-  console.log(eventInfo);
+  // console.log(eventInfo);
 
   document.getElementById("athletes-title").innerHTML =
     "Competitors in " + eventInfo.gender + " " + eventInfo.event;
@@ -50,12 +50,9 @@ function displayCards(collection) {
   db.collection(`sports/${eventInfo.sport}/${eventInfo.gender}`)
     .doc(eventInfo.event)
     .get()
-    .then( eventDoc => {
-      console.log(eventDoc.exists);
+    .then((eventDoc) => {
       var athletesInEvent = eventDoc.data().athletes;
-      
       athletesInEvent.forEach((a) => {
-        // console.log(a);
         db.collection("athletes")
           .doc(a + "")
           .get()
@@ -85,9 +82,9 @@ function displayCards(collection) {
               "./athlete-info.html?id=" + athleteDoc.id;
             newcard.querySelector("i").onclick = () =>
               addToTeam(currentUser, athleteDoc.id);
-            // if (userTeam.includes(athleteDoc.id)) {
-            //   newcard.querySelector("i").innerHTML = "bookmark";
-            // }
+            if (userTeam.includes(parseInt(athleteDoc.id))) {
+              newcard.querySelector("i").innerHTML = "done";
+            }
 
             document
               .getElementById(collection + "-go-here")

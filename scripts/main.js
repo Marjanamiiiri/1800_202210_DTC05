@@ -17,5 +17,3 @@ function getCurrentUser() {
     });
 }
 getCurrentUser();
-
-// export {currentUser, getCurrentUser};
