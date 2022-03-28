@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
   <title>My OlymPicks</title>
   <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
@@ -23,41 +23,37 @@
   <script src="./scripts/nav.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-  <!-- main stylesheet -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <!-- footer stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Other libraries go here -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
+
   <body>
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
-
-    <div id="container">
-      <h1 id="athletes-title">Competitors in...</h1>
-      <div id="athletes-go-here" class="row row-cols-auto">
-        <!-- template cards go here -->
+    <div class="container">
+      <h1 style="text-align: center;"> Sports-events</h1>
+      <div class="athlete_box">
+        
+        <div class="athlete_img">
+          <p>Women</p>
+          <a href="#" target="_blank"><img src="./images/athletes/women_filled.png"width="100%"></a>
+        </div>
+        <div class="athlete_img">
+          <p>Mixed</p>
+          <a href="#" target="_blank"><img src="./images/athletes/mixed_filled.png"width="100%"></a>
+        </div>
+        <div class="athlete_img" >
+          <p>Men</p>
+          <a href="#" target="_blank"><img src="./images/athletes/men_filled.png" width="100%"></a>
+        </div>
       </div>
-    </div>
+  
 
-    <!-- template kept separate -->
-    <template id="athleteCardTemplate">
-      <div class="card py-3 my-2 mx-2" style="width: 16rem">
-        <a class="card-block stretched-link text-decoration-none" href="./athlete-info.html">
-          <div class="add-button-container">
-            <i class="material-icons add-button">person_add</i>
-          </div>
-          <img
-            class="card-image card-img-top"
-            src="..."
-            alt="..."
-            style="height: 100px; width: auto"
-          />
-          <p class="athlete-card-name">Namey McNamerson</p>
-          <p class="athlete-card-age">##</p>
-        </a>
-      </div>
-    </template>
+    <!-- how to generate sub-categories? from collection 'sports' get doc
+  url = 'https://olympics.com/en/beijing-2022/sports/' + doc.id + '/' -->
 
     <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
@@ -65,7 +61,6 @@
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
-    <script src="./scripts/athletes.js"></script>
+    <script src="./scripts/sports-events.js"></script>
   </body>
 </html>

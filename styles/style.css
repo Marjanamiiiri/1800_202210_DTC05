@@ -172,7 +172,8 @@ a {text-decoration: none;}
   background-color: green;
   border-radius: 5px;
   float: right;
-  z-index: 1;
+  position: relative;
+  z-index: 100000;
 }
 .add-button{
   color: white;

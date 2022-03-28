@@ -9,6 +9,7 @@ function getCurrentUser() {
             var user_Name = userDoc.data().name;
             console.log("main.js: " + user_Name + ", " + user.uid);
             $("#name-goes-here").text(user_Name); //set text of html element to username
+            localStorage.setItem("user", currentUser);
             });
         } else {
             console.log("No user is logged in.");
@@ -16,5 +17,3 @@ function getCurrentUser() {
     });
 }
 getCurrentUser();
-
-// export {currentUser, getCurrentUser};

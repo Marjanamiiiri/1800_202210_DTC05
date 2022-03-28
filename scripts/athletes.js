@@ -1,4 +1,5 @@
-// import { currentUser, getCurrentUser } from "./main.js";
+// var currentUser = localStorage.getItem("user");
+// console.log("current user is " + currentUser);
 
 // page url should look something like:
 // athletes.html?sport=Skating&gender=Women%27s&sportevent=1,000m
@@ -12,15 +13,16 @@ function getEventInfo() {
   };
 }
 
+var currentUser;
 function getCurrentUser() {
   firebase.auth().onAuthStateChanged((user) => {
+    // Check if user is loged in:
     if (user) {
-      currentUser = db.collection("users").doc(user.uid);
+      currentUser = db.collection("users").doc(user.uid); //get doc associated with user
       currentUser.get().then((userDoc) => {
         var user_Name = userDoc.data().name;
         // console.log("athletes.js: " + user_Name + ", " + user.uid);
         displayCards("athletes");
-        // updateAthletesAddedStatus();
       });
     } else {
       console.log("No user is logged in.");
@@ -28,8 +30,6 @@ function getCurrentUser() {
   });
 }
 getCurrentUser();
-
-console.log("current user is " + currentUser);
 
 function displayCards(collection) {
   // "athletes"
@@ -39,13 +39,12 @@ function displayCards(collection) {
   document.getElementById("athletes-title").innerHTML =
     "Competitors in " + eventInfo.gender + " " + eventInfo.event;
 
-  console.log("current user is " + currentUser);
   //get user team info to update "added" status on athlete cards
   var userTeam;
   currentUser.get().then((userDoc) => {
     userTeam = userDoc.data().team; // array of athlete ids
     userTeamName = userDoc.data().teamname; // string
-    console.log("Team " + userTeamName + " contains " + userTeam);
+    // console.log("Team " + userTeamName + " contains " + userTeam);
   });
 
   db.collection(`sports/${eventInfo.sport}/${eventInfo.gender}`)
@@ -54,7 +53,6 @@ function displayCards(collection) {
     .then((eventDoc) => {
       var athletesInEvent = eventDoc.data().athletes;
       athletesInEvent.forEach((a) => {
-        // console.log(a);
         db.collection("athletes")
           .doc(a + "")
           .get()
@@ -84,15 +82,18 @@ function displayCards(collection) {
               "./athlete-info.html?id=" + athleteDoc.id;
             newcard.querySelector("i").onclick = () =>
               addToTeam(currentUser, athleteDoc.id);
-            // if (userTeam.includes(athleteDoc.id)) {
-            //   newcard.querySelector("i").innerHTML = "bookmark";
-            // }
+            if (userTeam.includes(parseInt(athleteDoc.id))) {
+              newcard.querySelector("i").innerHTML = "done";
+            }
 
             document
               .getElementById(collection + "-go-here")
               .appendChild(newcard);
           });
       });
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
