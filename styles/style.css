@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Hurricane&family=Nunito:wght@200&family=Oleo+Script&family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Hurricane&family=Montserrat+Subrayada:wght@700&family=Nunito:wght@200&family=Oleo+Script&family=Quicksand:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,14 +11,13 @@ a {text-decoration: none;}
   font-size: 18px;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg,
-      white,
-      #e0eaf5,
-      #c0c0c0e7);
-  color: #0000;
-  -webkit-background-clip: text;
-  background-clip: text;
   margin-right: 5px;
+  font-family: 'Fugaz One', cursive;
+  color: white
+}
+.display-1{
+  font-family: 'Fugaz One', cursive;
+  color: #363636;
 }
 .btn-outline-info {
   border-color: #3c7da8;
@@ -39,7 +39,9 @@ a {text-decoration: none;}
 }
 
 /* Nav and Header CSS(finish) */
-
+.bg-light{
+  background-color: white;
+}
 /* Footer css(start) */
 
 #center {
@@ -56,10 +58,9 @@ a {text-decoration: none;}
 }
 .footer-basic {
   padding:40px 0;
-  background-color:#ffffff;
   color:#4b4c4d;
   margin-bottom: 30px;
-  background-color: #cacaca;
+  background-color: #bfbdc1;
 }
 .footer-basic ul {
   padding:0;
