@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -150,12 +151,7 @@ a {text-decoration: none;}
 
 }
 
-.athletes-go-here .card-block{
-  background-color: #8ecae6 !important;
-  color: blueviolet !important;
-}
-
-.athlete_img{
+.athlete-img{
   display: block;
   border-radius: 10px;
   width: 30%;
@@ -166,23 +162,7 @@ a {text-decoration: none;}
   margin: 5px;
 }
 
-.add-button-container {
-  width: 30px;
-  height: 30px;
-  background-color: green;
-  border-radius: 5px;
-  float: right;
-  position: relative;
-  z-index: 100000;
-}
-.add-button{
-  color: white;
 
-}
-
-.athlete_img a {
-  text-decoration: none;
-}
 /* button class */
 .button {
   padding: 10px 40px;

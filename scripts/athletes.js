@@ -36,8 +36,8 @@ function displayCards(collection) {
   eventInfo = getEventInfo();
   // console.log(eventInfo);
 
-  document.getElementById("athletes-title").innerHTML =
-    "Competitors in " + eventInfo.gender + " " + eventInfo.event;
+  document.getElementById("title-gender").innerHTML = eventInfo.gender;
+  document.getElementById("title-event").innerHTML = eventInfo.event;
 
   //get user team info to update "added" status on athlete cards
   var userTeam;
@@ -58,11 +58,12 @@ function displayCards(collection) {
           .get()
           .then((athleteDoc) => {
             if (!athleteDoc.exists) {
-              console.log(a, "does not exist");
+              // console.log(a, "does not exist");
               return;
             }
-            // console.log(athleteDoc);
+            console.log(athleteDoc.data().sex);
             var name = athleteDoc.data().name;
+            var country = athleteDoc.data().team;
             var age = athleteDoc.data().age;
             var pic = "./images/athletes/women_outline.png";
             if (athleteDoc.data().sex == "M") {
@@ -72,16 +73,17 @@ function displayCards(collection) {
             // clone the template
             let newcard = athleteCardTemplate.content.cloneNode(true);
             // update elements of the clone
-            newcard.querySelector(".card-image").src = pic;
-            newcard.querySelector(".card-image").alt = name;
+            newcard.querySelector(".athlete-card-image").src = pic;
+            newcard.querySelector(".athlete-card-image").alt = name;
             newcard.querySelector(".athlete-card-name").innerHTML = name;
-            newcard.querySelector(".athlete-card-age").innerHTML = age;
-            newcard.querySelector(".card").setAttribute("id", athleteDoc.id);
-
+            newcard.querySelector(".athlete-card-country").innerHTML = country;
+            // newcard.querySelector(".athlete-card-age").innerHTML = age;
+            newcard.querySelector(".athlete-card").setAttribute("id", athleteDoc.id);
+            newcard.querySelector(".add-button").setAttribute("id", `add-${athleteDoc.id}`);
             newcard.querySelector("a").href =
               "./athlete-info.html?id=" + athleteDoc.id;
             newcard.querySelector("i").onclick = () =>
-              addToTeam(currentUser, athleteDoc.id);
+              addToTeam(currentUser, parseInt(athleteDoc.id));
             if (userTeam.includes(parseInt(athleteDoc.id))) {
               newcard.querySelector("i").innerHTML = "done";
             }
@@ -99,39 +101,35 @@ function displayCards(collection) {
 
 function addToTeam(currentUser, athlete) {
   currentUser.get().then((userDoc) => {
-    user = user.data();
-    console.log(user.name, user.bookmarks);
-    if (user.data().bookmarks.includes(athlete)) {
+    user = userDoc.data();
+    console.log(user.name, user.team, athlete);
+    if (user.team.includes(athlete)) {
       currentUser
         .set(
           {
-            bookmarks: firebase.firestore.FieldValue.arrayRemove(athlete),
+            team: firebase.firestore.FieldValue.arrayRemove(athlete),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log("bookmark has been removed for: " + currentUser);
-          var iconID = "save-" + athlete;
-          //console.log(iconID);
-          document.getElementById(iconID).innerText = "done";
+          console.log(athlete + " has been removed for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "person_add";
         });
     } else {
       currentUser
         .set(
           {
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(athlete),
+            team: firebase.firestore.FieldValue.arrayUnion(athlete),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          var iconID = "save-" + athlete;
-          //console.log(iconID);
-          document.getElementById(iconID).innerText = "person_add";
+          console.log(athlete + " has been added for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "done";
         });
     }
   });
