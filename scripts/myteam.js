@@ -1,5 +1,4 @@
 var currentUser;
-
 function getCurrentUser() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if user is loged in:
@@ -8,7 +7,6 @@ function getCurrentUser() {
       currentUser.get().then((userDoc) => {
         var user_Name = userDoc.data().name;
         console.log("main.js: " + user_Name + ", " + user.uid);
-        $("#name-goes-here").text(user_Name); //set text of html element to username
         displayTeam(currentUser);
       });
     } else {
@@ -22,17 +20,21 @@ function displayTeam(user) {
   var userTeam;
   user.get().then((userDoc) => {
     //get user team info
-    userTeam = userDoc.data().team; // array of athlete ids
+    userTeam = userDoc.data().team; // array of athlete ids (numbers)
     userTeamName = userDoc.data().teamname; // string
     console.log("Team " + userTeamName + " contains " + userTeam);
 
     userTeam.forEach((athleteID) => {
+      // console.log(typeof athleteID, athleteID);
       db.collection("athletes")
-        .get(athleteID) //might need String(athlete)
+        .get(athleteID + "")
         .then((athlete) => {
+          console.log(athlete.name);
           document
-            .getElementById("tbody")
-            .append(`<tr><td>${athlete.name}</td><td>${athlete.sport}</td><td>${athlete.team}</td></tr>`);
+            .getElementById("table-body")
+            .append(
+              `<tr><td>${athlete.name}</td><td>${athlete.sport}</td><td>${athlete.team}</td></tr>`
+            );
         });
     });
   });
