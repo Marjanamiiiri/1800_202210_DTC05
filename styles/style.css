@@ -255,3 +255,9 @@ a {text-decoration: none;}
 }
 
 
+/* Secondary Bootstrap button changed to orange */
+.btn-secondary {
+  color: black;
+  background-color: #ff8c00a8;
+}
+
