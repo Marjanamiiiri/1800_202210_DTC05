@@ -1,4 +1,7 @@
-//For the implementation of Groups, allowing input
+const leagueList = document.querySelector('#league-creation-goes-here');
+const form = document.querySelector('#add-league-form');
+
+//For the implementation of lagues, allowing input
 
 function populateInfo() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -42,40 +45,42 @@ function editUserInfo() {
 editUserInfo();
 
 
-//To save the data that the user has input and add it to the firebase
-function saveUserInfo() {
-  userName = document.getElementById("nameInput").value;  //takes the value that was given in nameInput
-  userTeam = document.getElementById("groupInput").value;  //takes the value that was given in groupInput
-  userTeam = document.getElementById("teamInput").value;  //takes the value that was given in teamInput
+//To save the data that the user has input and add it to the firebase may be removed
+// function saveUserInfo() {
+//   userName = document.getElementById("nameInput").value;  //takes the value that was given in nameInput
+//   userTeam = document.getElementById("groupInput").value;  //takes the value that was given in groupInput
+//   userTeam = document.getElementById("teamInput").value;  //takes the value that was given in teamInput
 
-  currentUser.update({
-      name: userName,
-      group: userGroup,
-      team: userTeam,
-    })
-    .then(() => {
-      console.log("Team successfully added!");
-    });
+//   currentUser.update({
+//       name: userName,
+//       group: userGroup,
+//       team: userTeam,
+//     })
+//     .then(() => {
+//       console.log("Team successfully added!");
+//     });
 
-  //Enable the form fields
-  document.getElementById("personalInfoFields").disabled = true;
-}
+//   //Enable the form fields
+//   document.getElementById("personalInfoFields").disabled = true;
+// }
 
-//call the function to run it
-saveUserInfo();
+// //call the function to run it
+// saveUserInfo();
 
 
-function writeGroups() {
-  //define a variable for the collection you want to create in Firestore to populate data
-  var groupRef = db.collection("Groups");
+//Pending removal
 
-  groupRef.add({
-      name: "First Last",
-      group_name: "Friends", //replace with your own city?
-      team_name: "The Winner",
-  });
+// function writeGroups() {
+//   //define a variable for the collection you want to create in Firestore to populate data
+//   var groupRef = db.collection("Groups");
 
-}
+//   groupRef.add({
+//       name: "First Last",
+//       group_name: "Friends", //replace with your own city?
+//       team_name: "The Winner",
+//   });
+
+// }
 
 
 //Grabs groups that were made by users and add them into cards
@@ -131,6 +136,55 @@ function saveBookmark(userGroup) {
       });
 }
 
+
+// create element and render league
+function renderLeague(doc){
+  let li = document.createElement('li');
+  let name = document.createElement('span');
+  let teamName = document.createElement('span');
+
+  li.setAttribute('data-id', doc.id);
+  name.textContent = doc.data.userName;
+  league.textContent = doc.data().leagues;
+  teamName.textContent = doc.data().teamName
+
+  li.appendChild(user);
+  li.appendChild(league);
+
+  leagueList.appendChild(li);
+}
+
+
+// To refer to the collection of leagues
+db.collection('leagues').get().then((snapshot) => {
+  snapshot.docs.forEach(doc => {
+    renderLeague(doc);
+    console.log(doc.data())
+  });
+})
+
+
+// This is for the created leagues to be placed into the "Join Existing Leagues" for user selection afterwards.
+form.addEventListener('submit', (eventobject) => {
+    eventobject.preventDefault();
+    db.collection('leagues').add({
+      user: form.currentUserName.value,
+      league: form.league.value,
+      teamName: form.teamName.value
+    });
+    form.league.value = '';
+    form.teamName.value = ''
+})
+
+
+// This function to be removed
+// function read_display_league_creation() {
+//   db.collection("leagues").doc("TOBEFILLEDINWITHCREATEDLEAGUE")
+//   .onSnapshot(TOBEFILLEDWITHCREATEDLEAGUE => {
+//     document.getElementById("").innerHTML=leaguenameDoc.data().athletes;
+//   })
+
+// }
 
 
 jQuery(document).ready(setup);

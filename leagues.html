@@ -64,18 +64,20 @@
                <!--For the text box for group name submission-->
                <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create League</h2>
                 <fieldset class="mb-3" id="personalInfoFields" disabled>
-                    <div class="form-group">
+                    <div class="add-league-form">
                       <label>Your Name</label>
-                      <input type="text" id="nameInput" class="form-control" placeholder="Your Name">
+                      <input type="text" id="nameInput" class="form-control" name="user" placeholder="Your Name">
                       <label>League Name</label>
-                      <input type="text" id="groupInput" class="form-control" placeholder="Enter your league name">
+                      <input type="text" id="groupInput" class="form-control" name="league" placeholder="Enter your league name">
                       <label>Your Team Name</label>
-                      <input type="text" id="teamInput" class="form-control" placeholder="Enter your team name">
+                      <input type="text" id="teamInput" class="form-control" name="teamName" placeholder="Enter your team name">
+                      <br>
+                      <button>Submit</button>
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
-                    <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" >Submit<a href="#" target="_blank"></a></button>
+                    <!-- <span style="width: 10px"></span> -->
+                    <!-- <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" >Submit<a href="#" target="_blank"></a></button> -->
                 </div>
             </form>
         </div>
