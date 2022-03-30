@@ -66,7 +66,7 @@
         <div class="row">
           <div class="col-9">
             <table class="table table-image">
-              <thead align="center">
+              <thead>
                 <tr>
                   <th scope="col">Athlete</th>
                   <th scope="col">Sport Event</th>
@@ -76,13 +76,18 @@
               <tbody> 
                 <!-- append the following chunk to tbody -->
               <tbody align="center">
-                <tr>
-                  <td>Dwayne Slidestones<span id="athlete-card-name"></span></td>  <!--Athelete key with the sport-->
-                  <td>Curling<span id="athlete-card-sport"></span></td>  <!--Sport that is attached to that athlete-->
-                  <td>3<span id="athlete-card-points"></span></td>  <!--Points gained from key athlete-->
+                <tr><span id="athlete-card">Added Athlete</span>
+                  <td><span id="athlete-card-name"></span></td>
+                  <td><span id="athlete-card-sport"></span></td>
+                  <td><span id="athlete-card-points"></span></td>
                 </tr>
+                <!-- <tr> -->
+                  <!-- <td>Dwayne Slidestones<span id="athlete-card-name"></span></td>  Athelete key with the sport -->
+                  <!-- <td>Curling<span id="athlete-card-sport"></span></td>  Sport that is attached to that athlete -->
+                  <!-- <td>3<span id="athlete-card-points"></span></td>  Points gained from key athlete -->
+                <!-- </tr> -->
 
-                
+<!--                 
                 <tr>
                   <td>Caitlyn Figs<span id="athlete-card-name"></span></td>
                   <td>Figure Skating<span id="athlete-card-sport"></span></td>
@@ -131,174 +136,9 @@
                 <tr>
                   <th scope="col">Total</th>
                   <th scope="col"></th>
-                  <th scope="col">18<span id="added-card-points"></span></th>
+                  <th scope="col">18<span id="added-card-points"></span></th> -->
                 </tr>
               </tbody>
-              <!-- <tbody>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Puck Norris
-                  </td>
-                  <td>Ice Hockey</td>
-                  <td></td>
-                  <td>5</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Marty McFly
-                  </td>
-                  <td>Ski-jumping</td>
-                  <td></td>
-                  <td>5</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Freddie Luger
-                  </td>
-                  <td>Luge</td>
-                  <td></td>
-                  <td>5</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Louis McLuge
-                  </td>
-                  <td>Luge</td>
-                  <td></td>
-                  <td>5</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Tony Bones
-                  </td>
-                  <td>Skeleton</td>
-                  <td></td>
-                  <td>3</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Kelly Tun
-                  </td>
-                  <td>Skeleton</td>
-                  <td></td>
-                  <td>3</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Dwayne Slidestones
-                  </td>
-                  <td>Curling</td>
-                  <td></td>
-                  <td>3</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Shirley Curly
-                  </td>
-                  <td>Curling</td>
-                  <td></td>
-                  <td>1</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Mully Taskers
-                  </td>
-                  <td>Biathlon</td>
-                  <td></td>
-                  <td>1</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Kaity Blade
-                  </td>
-                  <td>Speed-skating</td>
-                  <td></td>
-                  <td>1</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Emma Skinner
-                  </td>
-                  <td>Alpine-skiing</td>
-                  <td></td>
-                  <td>0</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <img
-                      src="images/Misc/CanadaFlagPlacementHolder.webp"
-                      width="5%"
-                    />
-                    Bruce Gretski
-                  </td>
-                  <td>Alpine-skiing</td>
-                  <td></td>
-                  <td>0</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Total</td>
-                  <td></td>
-                  <td></td>
-                  <td>32</td>
-                  <td></td>
-                </tr>
-              </tbody> -->
             </table>
           </div>
         </div>
@@ -316,5 +156,6 @@
     <script src="./scripts/main.js"></script>
     <script src="./scripts/myteam.js"></script>
     <script src="./scripts/leagues.js"></script>
+    <script src="./scripts/athletes.js"></script>
   </body>
 </html>

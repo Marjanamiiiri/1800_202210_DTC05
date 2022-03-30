@@ -1,3 +1,6 @@
+import * as firebase from 'firebase/app';
+const db = firebase.firestore();
+
 var currentUser;
 
 function getCurrentUser() {
@@ -37,3 +40,7 @@ function displayTeam(user) {
     });
   });
 }
+
+
+const query = db.collectionGroup('athletes')
+              .where('users', '==', 'G5cr8D6qZIYJXO7ua1jBAS0IuYh2')
