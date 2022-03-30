@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <title>My OlymPicks</title>
+    <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
+    <meta name="author" content="BCIT - Team 05" />
 
-  <title>My OlymPicks</title>
-  <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
-  <meta name="author" content="BCIT - Team 05" />
+    <!-- Bootstrap Library CSS CDN, JS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap Library CSS CDN, JS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Firebase 8 Library related JS CDN, CSS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="./scripts/nav.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
 
-  <!-- Firebase 8 Library related JS CDN, CSS CDN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <script src="./scripts/nav.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
-  <!-- main stylesheet -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <!-- footer stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-</head>
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- athletes stylesheet -->
+    <link rel="stylesheet" href="./styles/athletes.css" />
+    <!-- footer stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
   <body>
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
     <div id="container">
-      <h1 id="athletes-title">Competitors in...</h1>
-      <div id="athletes-go-here" class="row row-cols-auto">
+      <div id="title-page">
+        <h1 id="title-gender"></h1> 
+        <h1 id="title-event"></h1>
+      </div>
+      <div id="athletes-go-here">
         <!-- template cards go here -->
       </div>
     </div>
 
     <!-- template kept separate -->
     <template id="athleteCardTemplate">
-      <div class="card py-3 my-2 mx-2" style="width: 16rem">
-        <a class="card-block stretched-link text-decoration-none" href="./athlete-info.html">
-          <div class="add-button-container">
-            <i class="material-icons add-button">person_add</i>
-          </div>
+      <div class="athlete-card">
+        <div class="athlete-img-container">
           <img
-            class="card-image card-img-top"
-            src="..."
-            alt="..."
-            style="height: 100px; width: auto"
+            class="athlete-card-image"
+            src="./images/athletes/women_outline.png"
+            alt="athlete photo"
           />
-          <p class="athlete-card-name">Namey McNamerson</p>
-          <p class="athlete-card-age">##</p>
-        </a>
+        </div>
+        <div class="athlete-card-info">
+          <a href="./athlete-info.html">
+            <p class="athlete-card-name">Namey McNamerson</p>
+          </a>
+          <p class="athlete-card-country">Eurasiamerica</p>
+          <!-- <p class="athlete-card-age">##</p> -->
+        </div>
+        <div class="athlete-card-buttons">
+          <i class="material-icons add-button">person_add</i>
+        </div>
       </div>
     </template>
 
@@ -65,7 +87,6 @@
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
     <script src="./scripts/athletes.js"></script>
   </body>
 </html>

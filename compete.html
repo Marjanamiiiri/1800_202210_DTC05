@@ -38,20 +38,20 @@
   <!-- Jumbotron Title -->
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h4 class="display-1 fw-bold text-center"><span style="color: #003f7d;">L</span>eague<span style="color: #003f7d;"> C</span>reation</h4>
+      <h4 class="display-1 fw-bold text-center"><span style="color: #003f7d;">T</span>eam<span style="color: #003f7d;"> C</span>reation</h4>
 
       <br><br><br>
       <!-- This div Is for my team creation list -->
       <div class="containerCenter">
-      <h2>Create a new league or join an existing one.</h2>
+      <h2>Create a new group or join an existing one.</h2>
       </div>
 
     <div class="row">
         <div class="col-sm-12" align="center">
        
                <form id='form-id'>
-                   <button id='see-me' type='button'>Create League</button>
-                   <button id='look-me' type='button'> Join Existing League</button>
+                   <button id='see-me' type='button'>Create Group</button>
+                   <button id='look-me' type='button'> Join Existing Group</button>
                </form>
                <br><br>
                <div id='show-me'>
@@ -62,61 +62,28 @@
                    </div>
                </div>
                <!--For the text box for group name submission-->
-               <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create League</h2>
+               <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create Group</h2>
                 <fieldset class="mb-3" id="personalInfoFields" disabled>
                     <div class="form-group">
                       <label>Your Name</label>
                       <input type="text" id="nameInput" class="form-control" placeholder="Your Name">
-                      <label>League Name</label>
-                      <input type="text" id="leagueInput" class="form-control" placeholder="Enter your league name">
+                      <label>Group Name</label>
+                      <input type="text" id="groupInput" class="form-control" placeholder="Enter your group name">
                       <label>Your Team Name</label>
                       <input type="text" id="teamInput" class="form-control" placeholder="Enter your team name">
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
                     <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" style="float: right">Submit<a href="#" target="_blank"></a></button>
+                    <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" >Submit<a href="#" target="_blank"></a></button>
                 </div>
             </form>
         </div>
             </div>
-               <div id='show-me-three' style='text-align: center; border:2px solid #ccc' style="border-bottom: 1px solid black;"><h2>Join a League</h2>
-                <div>
-                  <br>
-                  <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">League Name</th>
-                      <th scope="col"> </th>
-                      <th scope="col"># of Players</th>
-                      <th scope="col"> </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>winter</td>
-                      <td> </td>
-                      <td>1 / 10</td>
-                      <td><a style="float: right;" class="btn btn-primary card-href">Join</a></td>
-                      <td> </td>
-                    </tr>
-
-                  </table>
-                </div>
-                <!--Below To be added back in-->
-                <!-- <template id="leagueCardTemplate">
-                  <div class="card">
-                      <img class="card-img-top">
-                      <div class="card-body">
-                          <h5 class="card-title">placeholder</h5>
-                          <p class="card-length">placeholder</p>
-                          <a class="btn btn-primary read-more" style="float: right">Join League</a>
-                          <i class="material-icons">bookmark_border</i>
-                      </div>
-                  </div>
-              </template>
-                    <div id="leagueCardGroup" class="row row-cols-auto">
-                    </div> -->
+               <div id='show-me-three' style='text-align: center; border:2px solid #ccc'><h2>Join Group</h2>
+                    <div id="groupsCardGroup" class="row row-cols-auto">
+                      <i class="material-icons">bookmark_border</i>
+                    </div>
             
             
             
@@ -137,7 +104,6 @@
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/compete.js"></script>
-    <script src="./scripts/athletes.js"></script>
 
 </body>
 

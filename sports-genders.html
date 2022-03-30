@@ -30,41 +30,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
-<body>
-  <!-- Nav Bar -->
-  <nav id="navbarPlaceholder"></nav>
-
-      <div id="container-fluid" style="margin-left: 70px; margin-top: 10px; padding: 20px;">
-        <div id="sports-go-here" class="row row-cols-auto"></div>
+  <body>
+    <!-- Nav Bar -->
+    <nav id="navbarPlaceholder"></nav>
+    <div class="container">
+      <h1 style="text-align: center;"> Sports-events</h1>
+      <div class="athlete_box">
+        
+        <div class="athlete-img">
+          <p>Women</p>
+          <a href="#" target="_blank"><img src="./images/athletes/women_filled.png"width="100%"></a>
+        </div>
+        <div class="athlete-img">
+          <p>Mixed</p>
+          <a href="#" target="_blank"><img src="./images/athletes/mixed_filled.png"width="100%"></a>
+        </div>
+        <div class="athlete-img" >
+          <p>Men</p>
+          <a href="#" target="_blank"><img src="./images/athletes/men_filled.png" width="100%"></a>
+        </div>
       </div>
-    </div>
-  </div>
+  
 
-    <!-- template for sport cards kept separate  -->
-    <template id="sportCardTemplate">
-      <div class="card py-3 my-2 mx-2" style="width: 25%; background-color: #f1f1f1;">
-        <!-- make it appear clickable (still not working) -->
-        <a class="card-block stretched-link text-decoration-none" href>
-          <img
-            class="card-image card-img-top"
-            src="..."
-            alt="..."
-            style="height: 110px;"
-          />
-          <div class="card-body">
-            <h5 class="card-title text-center m11" style="font-size: 10px; color: black; ">Card title</h5>
-          </div>
-        </a>
-      </div>
-    </template>
+    <!-- how to generate sub-categories? from collection 'sports' get doc
+  url = 'https://olympics.com/en/beijing-2022/sports/' + doc.id + '/' -->
 
-  <!-- Footer -->
-  <nav id="footerPlaceholder"></nav>
+    <!-- Footer -->
+    <nav id="footerPlaceholder"></nav>
 
-  <!-- Javascript scripts -->
-  <script src="./scripts/firebaseAPI_TEAM05.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/sports.js"></script>
-</body>
-
+    <!-- Javascript scripts -->
+    <script src="./scripts/firebaseAPI_TEAM05.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/sports-events.js"></script>
+  </body>
 </html>

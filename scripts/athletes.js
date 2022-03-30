@@ -1,4 +1,5 @@
-// import { currentUser, getCurrentUser } from "./main.js";
+// var currentUser = localStorage.getItem("user");
+// console.log("current user is " + currentUser);
 
 // page url should look something like:
 // athletes.html?sport=Skating&gender=Women%27s&sportevent=1,000m
@@ -11,41 +12,39 @@ function getEventInfo() {
     event: urlParams.get("event"),
   };
 }
-currentUser = localStorage.getItem("user");
-// function getCurrentUser() {
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       currentUser = db.collection("users").doc(user.uid);
-//       currentUser.get().then((userDoc) => {
-//         var user_Name = userDoc.data().name;
-//         // console.log("athletes.js: " + user_Name + ", " + user.uid);
-//         displayCards("athletes");
-//         // updateAthletesAddedStatus();
-//       });
-//     } else {
-//       console.log("No user is logged in.");
-//     }
-//   });
-// }
-// getCurrentUser();
 
-console.log("current user is " + currentUser);
+var currentUser;
+function getCurrentUser() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if user is loged in:
+    if (user) {
+      currentUser = db.collection("users").doc(user.uid); //get doc associated with user
+      currentUser.get().then((userDoc) => {
+        var user_Name = userDoc.data().name;
+        // console.log("athletes.js: " + user_Name + ", " + user.uid);
+        displayCards("athletes");
+      });
+    } else {
+      console.log("No user is logged in.");
+    }
+  });
+}
+getCurrentUser();
 
 function displayCards(collection) {
   // "athletes"
   eventInfo = getEventInfo();
   // console.log(eventInfo);
 
-  document.getElementById("athletes-title").innerHTML =
-    "Competitors in " + eventInfo.gender + " " + eventInfo.event;
+  document.getElementById("title-gender").innerHTML = eventInfo.gender;
+  document.getElementById("title-event").innerHTML = eventInfo.event;
 
-  console.log("current user is " + currentUser);
   //get user team info to update "added" status on athlete cards
   var userTeam;
   currentUser.get().then((userDoc) => {
     userTeam = userDoc.data().team; // array of athlete ids
     userTeamName = userDoc.data().teamname; // string
-    console.log("Team " + userTeamName + " contains " + userTeam);
+    // console.log("Team " + userTeamName + " contains " + userTeam);
   });
 
   db.collection(`sports/${eventInfo.sport}/${eventInfo.gender}`)
@@ -54,17 +53,17 @@ function displayCards(collection) {
     .then((eventDoc) => {
       var athletesInEvent = eventDoc.data().athletes;
       athletesInEvent.forEach((a) => {
-        // console.log(a);
         db.collection("athletes")
           .doc(a + "")
           .get()
           .then((athleteDoc) => {
             if (!athleteDoc.exists) {
-              console.log(a, "does not exist");
+              // console.log(a, "does not exist");
               return;
             }
-            // console.log(athleteDoc);
+            console.log(athleteDoc.data().sex);
             var name = athleteDoc.data().name;
+            var country = athleteDoc.data().team;
             var age = athleteDoc.data().age;
             var pic = "./images/athletes/women_outline.png";
             if (athleteDoc.data().sex == "M") {
@@ -74,63 +73,63 @@ function displayCards(collection) {
             // clone the template
             let newcard = athleteCardTemplate.content.cloneNode(true);
             // update elements of the clone
-            newcard.querySelector(".card-image").src = pic;
-            newcard.querySelector(".card-image").alt = name;
+            newcard.querySelector(".athlete-card-image").src = pic;
+            newcard.querySelector(".athlete-card-image").alt = name;
             newcard.querySelector(".athlete-card-name").innerHTML = name;
-            newcard.querySelector(".athlete-card-age").innerHTML = age;
-            newcard.querySelector(".card").setAttribute("id", athleteDoc.id);
-
+            newcard.querySelector(".athlete-card-country").innerHTML = country;
+            // newcard.querySelector(".athlete-card-age").innerHTML = age;
+            newcard.querySelector(".athlete-card").setAttribute("id", athleteDoc.id);
+            newcard.querySelector(".add-button").setAttribute("id", `add-${athleteDoc.id}`);
             newcard.querySelector("a").href =
               "./athlete-info.html?id=" + athleteDoc.id;
             newcard.querySelector("i").onclick = () =>
-              addToTeam(currentUser, athleteDoc.id);
-            // if (userTeam.includes(athleteDoc.id)) {
-            //   newcard.querySelector("i").innerHTML = "bookmark";
-            // }
+              addToTeam(currentUser, parseInt(athleteDoc.id));
+            if (userTeam.includes(parseInt(athleteDoc.id))) {
+              newcard.querySelector("i").innerHTML = "done";
+            }
 
             document
               .getElementById(collection + "-go-here")
               .appendChild(newcard);
           });
       });
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
 function addToTeam(currentUser, athlete) {
   currentUser.get().then((userDoc) => {
-    user = user.data();
-    console.log(user.name, user.bookmarks);
-    if (user.data().bookmarks.includes(athlete)) {
+    user = userDoc.data();
+    console.log(user.name, user.team, athlete);
+    if (user.team.includes(athlete)) {
       currentUser
         .set(
           {
-            bookmarks: firebase.firestore.FieldValue.arrayRemove(athlete),
+            team: firebase.firestore.FieldValue.arrayRemove(athlete),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log("bookmark has been removed for: " + currentUser);
-          var iconID = "save-" + athlete;
-          //console.log(iconID);
-          document.getElementById(iconID).innerText = "done";
+          console.log(athlete + " has been removed for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "person_add";
         });
     } else {
       currentUser
         .set(
           {
-            bookmarks: firebase.firestore.FieldValue.arrayUnion(athlete),
+            team: firebase.firestore.FieldValue.arrayUnion(athlete),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log("bookmark has been saved for: " + currentUser);
-          var iconID = "save-" + athlete;
-          //console.log(iconID);
-          document.getElementById(iconID).innerText = "person_add";
+          console.log(athlete + " has been added for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "done";
         });
     }
   });

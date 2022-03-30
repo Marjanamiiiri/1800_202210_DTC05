@@ -6,30 +6,24 @@ function displayCards() {
   const currSport = urlParams.get("sport");
   $("#sport-heading").text(currSport.toUpperCase());
 
-  ["Women's", "Men's", "Mixed"].forEach(gender => {
+  ["Women's", "Men's", "Mixed"].forEach((gender) => {
     db.collection("sports/" + currSport + `/${gender}`)
       .get()
       .then((snap) => {
         if (snap.size > 0) {
-          $('#gender-container').append(`<h2>${gender}</h2>`);
+          $("#sports-events").append(`<h2>${gender}</h2>`);
           snap.forEach((eventSnap) => {
             currEvent = eventSnap.id;
-            // console.log(currEvent)
-            $('#gender-container').append(
-              `<div class="event"><a href="./athletes.html?sport=${currSport}&gender=${gender}&event=${currEvent}">${currEvent}</a></div>`
+            console.log(currEvent)
+            $("#sports-events").append(
+              `<div class="event">
+                <a href="./athletes.html?sport=${currSport}&gender=${gender}&event=${currEvent}">${currEvent}</a>
+              </div>`
             );
           });
         }
       });
   });
-
-  // original way
-  // doc.data()["Women's"].forEach(event => {
-  //   $("#womens-events").append(`<div class="event"><a href="./athletes.html?sport=${currSport}&gender=Women%27s&event=${event}">${event}</a></div>`);
-  // });
-  // doc.data()["Men's"].forEach(event => {
-  //   $("#mens-events").append(`<div class="event"><a href="./athletes.html?sport=${currSport}&gender=Men%27s&event=${event}">${event}</a></div>`);
-  // });
 }
 displayCards();
 

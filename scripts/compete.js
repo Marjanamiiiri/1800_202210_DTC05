@@ -5,12 +5,12 @@ function populateInfo() {
     // Check if user is signed in:
     if (user) {
       //go to the correct user document by referencing to the user uid
-      currentUser = db.collection("leagues").doc(user.uid);
+      currentUser = db.collection("users").doc(user.uid);
       //get the document for current user.
       currentUser.get().then((userDoc) => {
         //get the data field of the user for groups they registered in
         var userName = userDoc.data().name;
-        var userLeague = userDoc.data().league;
+        var userGroup = userDoc.data().group;
         var userTeam = userDoc.data().team;
 
         //if the data fields are not empty, then write them in to the form.
@@ -18,7 +18,7 @@ function populateInfo() {
           document.getElementById("nameInput").value = userName;
         }
         if (userGroup != null) {
-          document.getElementById("leagueInput").value = userLeague;
+          document.getElementById("groupInput").value = userGroup;
         }
         if (userTeam != null) {
           document.getElementById("teamInput").value = userTeam;
@@ -30,7 +30,6 @@ function populateInfo() {
     }
   });
 }
-
 
 //call the function to run it
 populateInfo();
@@ -46,12 +45,12 @@ editUserInfo();
 //To save the data that the user has input and add it to the firebase
 function saveUserInfo() {
   userName = document.getElementById("nameInput").value;  //takes the value that was given in nameInput
-  userTeam = document.getElementById("leagueInput").value;  //takes the value that was given in groupInput
+  userTeam = document.getElementById("groupInput").value;  //takes the value that was given in groupInput
   userTeam = document.getElementById("teamInput").value;  //takes the value that was given in teamInput
 
   currentUser.update({
       name: userName,
-      league: userLeague,
+      group: userGroup,
       team: userTeam,
     })
     .then(() => {
@@ -91,26 +90,26 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
   .then(allGroup => {
       allGroup.forEach(doc => {  // forEach goes through each doc
           var userName = doc.data().name; //gets the name field
-          var userLeague = doc.data().league; //gets the group field
-          var userTeam = doc.data().team; //gets the team field
+          var userGroup = doc.data().id; //gets the group field
+          var userTeam = doc.data().length; //gets the team field
           let testGroupCard = groupsCardTemplate.content.cloneNode(true);
           testGroupCard.querySelector('.card-title').innerHTML = userName;
 
           //NEW LINE: update to display Name, Group, Team
           testGroupCard.querySelector('.card-length').innerHTML = 
           "Name: " + doc.data().userName + "<br>" +
-          "League Name: " + doc.data().userGroup + "<br>" +
+          "Group Name: " + doc.data().userGroup + "<br>" +
           "Team Name: " + doc.data().userTeam + "<br>"
 
-          testGroupCard.querySelector('a').onclick = () => setGroupData(userLeagues);
+          testGroupCard.querySelector('a').onclick = () => setGroupData(userGroup);
 
           //which group to bookmark based on which group was clicked
-          testGroupCard.querySelector('i').id = 'save-' + userLeagues;
+          testGroupCard.querySelector('i').id = 'save-' + userGroup;
           // this line will call a function to save the groups to the user's document             
-          testGroupCard.querySelector('i').onclick = () => saveBookmark(userLeagues);
-          testGroupCard.querySelector('.read-more').href = "eachGroup.html?groupName="+userName +"&id=" + userLeagues;
+          testGroupCard.querySelector('i').onclick = () => saveBookmark(userGroup);
+          testGroupCard.querySelector('.read-more').href = "eachGroup.html?groupName="+userName +"&id=" + userGroup;
 
-          testGroupCard.querySelector('img').src = `./${userLeagues}.jpg`;
+          testGroupCard.querySelector('img').src = `./${userGroup}.jpg`;
           groupsCardGroup.appendChild(testGroupCard);
           })
 
@@ -118,45 +117,19 @@ function populateCardsDynamically() {  //Add sortkey into the parameter?
 }
 
 
-function getBookmarks(user){
-  console.log("inside the function")
-  console.log(user);
-
-  db.collection("users").doc(user.uid).get() //Goes into the database, goes to the user id and get the docs
-  .then(userDoc=>{  //Gathers the information and adds it to the user doc
-      thisUser=userDoc.data();
-      var bookmarks =thisUser.bookmarks;
-      console.log(bookmarks);
-
-      let CardTemplate = document.getElementById("CardTemplate");
-      bookmarks.forEach(thisHikeID=>{
-          console.log(thisHikeID);
-          db.collection("leagues").where("id", "==", thisleaguesID).get()  // .where searches for the user information
-          .then(snap =>{
-              size=snap.size;
-              queryData = snap.docs;
-              console.log(size);
-
-              if (size ==1){
-                  var doc = queryData[0].data();
-                  var userName = doc.name;
-                  var leaguesID = doc.leaguesID;
-                  var teamName = doc.teamName;
-
-                  let newCard = CardTemplate.content.cloneNode(true);
-                  newCard.querySelector('.card-title').innerHTML = userName;
-                  newCard.querySelector('.card-length').innerHTML = teamName;
-                  newCard.querySelector('a').onclick = () => setHikeData(leaguesID);
-                  leagueCardGroup.appendChild(newCard);
-
-              }else {
-                  console.log("query result saved")
-              }
-          })
-
+function saveBookmark(userGroup) {
+  currentUser.set({
+          bookmarks: firebase.firestore.FieldValue.arrayUnion(userGroup)
+      }, {
+          merge: true
       })
-  })
-};
+      .then(function () {
+          console.log("bookmark has been saved for: " + currentUser);
+          var iconID = 'save-' + userGroup;
+          //console.log(iconID);
+          document.getElementById(iconID).innerText = 'bookmark';
+      });
+}
 
 
 
