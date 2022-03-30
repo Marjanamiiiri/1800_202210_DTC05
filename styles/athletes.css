@@ -1,0 +1,96 @@
+
+:root {
+    --bg-athlete: #ebf3fa;
+    --add: rgb(0, 110, 255);
+    --initial: #003f7d;
+  }
+  * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  .material-icons{
+    cursor: pointer;
+  }
+  .material-icons.md-18 { font-size: 18px; }
+  .material-icons.md-24 { font-size: 24px; }
+  .material-icons.md-36 { font-size: 36px; }
+  .material-icons.md-48 { font-size: 48px; }
+  
+
+#athletes-page-title {
+    font-size: 22px;
+    margin-left: 20px;
+    /* text-align: center; */
+  }
+  #title-page {
+      margin-left: 20px;
+  }
+  #title-gender {
+    color: var(--initial);
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: top;
+    font-variant: small-caps;
+  }
+  #title-event {
+    font-size: 24px;
+    font-weight: bolder;
+    display: inline-block;
+  }
+
+/******************************
+  Athlete Cards athletes.html
+*******************************/
+
+  
+  .athlete-card {
+    margin: 0;
+    margin-left: 10px;
+    padding: 2px;
+    width: 95%;
+    height: auto;
+    background-color: var(--bg-athlete);
+    border: 1px white solid;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 50px 1fr 30px;
+  }
+  .athlete-img-container{
+    padding: 8px;
+    margin: 2px;
+    /* background-color: white; */
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+  .athlete-card-image {
+    width: 100%;
+  }
+  .athlete-card-info {
+    margin: 8px;
+  }
+  .athlete-card p {
+    margin-bottom: 2px;
+    font-size: 13px;
+    display: block;
+  }
+  
+  /* .add-button-container {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    border-radius: 5px;
+    float: right;
+    position: relative;
+    z-index: 100000;
+  } */
+
+  .add-button{
+    color: var(--add);
+    margin-top: 15px;
+  }
+  
+  .athlete-img a {
+    text-decoration: none;
+  }
+  
