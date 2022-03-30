@@ -165,26 +165,24 @@ a {text-decoration: none;}
 
 
 /* button class */
-.button {
-  padding: 10px 40px;
+.btn {
+  padding: 5px 20px;
   border-radius: 50px;
   border: 0;
-  background-color: white;
+  color: #363636;
   box-shadow: rgb(0 0 0 / 10%) 0 0 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 10px;
   transition: all .5s ease;
  }
- 
- .button:hover {
+ .btn:hover {
   letter-spacing: 3px;
   background-color: #ff8e00;
   color: hsl(0, 0%, 100%);
   box-shadow: #8ecae6 0px 7px 29px 0px;
  }
- 
- .button:active {
+ .btn:active {
   letter-spacing: 3px;
   background-color: #003f7d;
   color: hsl(0, 0%, 100%);
@@ -192,6 +190,7 @@ a {text-decoration: none;}
   transform: translateY(10px);
   transition: 100ms;
  }
+
  .fixed-bottom {
    display: none;
  }
@@ -213,7 +212,9 @@ a {text-decoration: none;}
   .fixed-bottom {
     display: block;
   } 
-  
+  #myteamChart{
+    margin-left: 70px;
+  }
 }
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .fixed-bottom{
