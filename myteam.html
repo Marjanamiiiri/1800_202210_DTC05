@@ -53,38 +53,38 @@
       <ul class="pagination pagination-lg">
         <li class="page-item disabled">
           May use this line <a class="page-link" href="#" tabindex="-1">Family Group</a> -->
-          <div class="dropdownLeagues">
-            <button class="dropbtnLeagues">Leagues</button>
+          <div id="leagues-dropdown-container">
+            <label for="leagues">Current League:</label>
+            <select name="leagues" id="leagues-dropdown">
+              <option value="1">MarsWater</option>
+              <option value="1">FamilyFightClub</option>
+              <option value="1">FriendStones</option>
+            </select>
+            
+            <!-- <button class="dropbtnLeagues">Leagues</button>
             <div class="dropdown-leagues">
               <a href="#">MarsWater</a>
               <a href="#">FamilyFightClub</a>
               <a href="#">FriendStones</a>
-            </div>
+            </div> -->
           </div>
     
-    <div id="myteamChart" >
-      <div class="containerChart">
+    <div id="myteam-table" >
+      <div class="container">
         <div class="row">
-          <div class="col-9">
+          <div class="col-4">
             <table class="table table-image">
               <thead>
                 <tr>
                   <th scope="col">Athlete</th>
                   <th scope="col">Event</th>
+                  <!-- <th scope="col">Country</th> -->
                   <th scope="col">Points</th>
+                  <th scope="col"> </th>
                 </tr>
               </thead>
-              <!-- This is the template/placeholder for the populated data -->
-              <template id="athleteCardTemplate">
-                <tr>
-                  <td><span id="athlete-card-name"></span></td>  
-                  <td><span id="athlete-card-sport"></span></td>  
-                  <td><span id="athlete-card-points"></span></td>
-                </tr> 
-              </template>
-
-                <!-- append the following chunk to tbody -->
               <tbody id="table-body">
+                <!-- table rows added here via displayTeam() -->
               </tbody>
             </table>
           </div>
