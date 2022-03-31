@@ -38,13 +38,54 @@ function displayTeam(user) {
           }
           athleteName = athleteDoc.data().name;
           athleteSport = athleteDoc.data().sport;
-          athleteCountry = athleteDoc.data().team;
+          athleteCountry = athleteDoc.data().noc; // <td>${athleteCountry}</td>
           // athleteCountry = athleteDoc.data().points;
-          document.getElementById(
-            "table-body"
-          ).innerHTML += `<tr><td>${athleteName}</td><td>${athleteSport}</td><td>${athleteCountry}</td></tr>`;
+          document.getElementById("table-body").innerHTML += `<tr>
+          <td>${athleteName}</td>
+          <td>${athleteSport}</td>
+          <td>${"#"}</td>
+          <td><i class="material-icons add-button" id="add-${athleteID}">remove_circle_outline</i></td>
+          </tr>`;
+          $("#add-" + athleteID).click(() => {
+            addToTeam(user, parseInt(athleteID));
+          });
         });
     });
   });
 }
 // displayTeam();
+function addToTeam(currentUser, athlete) {
+  currentUser.get().then((userDoc) => {
+    user = userDoc.data();
+    console.log(user.name, user.team, athlete);
+    if (user.team.includes(athlete)) {
+      currentUser
+        .set(
+          {
+            team: firebase.firestore.FieldValue.arrayRemove(athlete),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log(athlete + " has been removed for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "person_add";
+        });
+    } else {
+      currentUser
+        .set(
+          {
+            team: firebase.firestore.FieldValue.arrayUnion(athlete),
+          },
+          {
+            merge: true,
+          }
+        )
+        .then(function () {
+          console.log(athlete + " has been added for: " + user.name);
+          document.getElementById(`add-${athlete}`).innerText = "remove_circle_outline";
+        });
+    }
+  });
+}

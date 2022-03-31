@@ -6,14 +6,6 @@
   align-items: center;
 }
 
-/* myteam.html chart */
-.myteamChart {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  align-items: center;
-}
-
 /* Dropdown Button */
 .dropbtnLeagues {
   background-color: #003f7d;
@@ -54,4 +46,18 @@
 .dropdownLeagues:hover .dropdown-leagues {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdownLeagues:hover .dropbtnLeagues {background-color: #70a8e0;}
+.dropdownLeagues:hover .dropbtnLeagues {background-color: #3e8e41;}
+
+/* myteam.html chart */
+/* .myteam-table {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  align-items: center;
+} */
+
+#leagues-dropdown-container {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}

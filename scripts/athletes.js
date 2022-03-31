@@ -85,7 +85,7 @@ function displayCards(collection) {
             newcard.querySelector("i").onclick = () =>
               addToTeam(currentUser, parseInt(athleteDoc.id));
             if (userTeam.includes(parseInt(athleteDoc.id))) {
-              newcard.querySelector("i").innerHTML = "done";
+              newcard.querySelector("i").innerHTML = "remove_circle_outline";
             }
 
             document
@@ -129,7 +129,7 @@ function addToTeam(currentUser, athlete) {
         )
         .then(function () {
           console.log(athlete + " has been added for: " + user.name);
-          document.getElementById(`add-${athlete}`).innerText = "done";
+          document.getElementById(`add-${athlete}`).innerText = "remove_circle_outline";
         });
     }
   });
