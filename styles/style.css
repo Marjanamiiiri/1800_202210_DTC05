@@ -47,7 +47,7 @@ a {text-decoration: none;}
 
 #center {
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
 }
 .event-container {
   width: 20%;
@@ -56,6 +56,25 @@ a {text-decoration: none;}
 }
 .clearfix {
   overflow: hidden;
+}
+.event-container {
+  position: relative;
+}
+.event-container::before {
+  content: '';
+  background-color: #c1c1c180;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 0px;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+.event-container:hover::before {
+  bottom: 0;
+  height: 100%;
 }
 .footer-basic {
   padding:40px 0;
