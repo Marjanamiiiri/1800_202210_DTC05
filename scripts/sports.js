@@ -18,7 +18,7 @@ function displayCards(collection) {
         newcard.querySelector(".card-title").innerHTML = title;
         newcard.querySelector(".card-image").src = photo;
         newcard.querySelector(".card-block").href =
-          "sports-events.html?sport=" + doc.id;
+          "events.html?sport=" + doc.id;
 
         // attach to gallery
         document.getElementById(collection + "-go-here").appendChild(newcard);
