@@ -1,5 +1,5 @@
 // page URL should look something like:
-// /sports-events.html?sport=alpine-skiing
+// /events.html?sport=alpine-skiing
 
 function displayCards() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -11,11 +11,11 @@ function displayCards() {
       .get()
       .then((snap) => {
         if (snap.size > 0) {
-          $("#sports-events").append(`<h2>${gender}</h2>`);
+          $("#events").append(`<h2>${gender}</h2>`);
           snap.forEach((eventSnap) => {
             currEvent = eventSnap.id;
             console.log(currEvent)
-            $("#sports-events").append(
+            $("#events").append(
               `<div class="event">
                 <a href="./athletes.html?sport=${currSport}&gender=${gender}&event=${currEvent}">${currEvent}</a>
               </div>`
