@@ -71,7 +71,15 @@
                   <th scope="col">Points</th>
                 </tr>
               </thead>
-              <!-- This is for the populated data -->
+              <!-- This is the template/placeholder for the populated data -->
+              <template id="athleteCardTemplate">
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>  
+                  <td><span id="athlete-card-sport"></span></td>  
+                  <td><span id="athlete-card-points"></span></td>
+                </tr> 
+              </template>
+
                 <!-- append the following chunk to tbody -->
               <tbody id="table-body">
               </tbody>

@@ -168,7 +168,6 @@ db.collection('leagues').get().then((snapshot) => {
 form.addEventListener('submit', (eventobject) => {
     eventobject.preventDefault();
     db.collection('leagues').add({
-      user: form.currentUserName.value,
       league: form.league.value,
       teamName: form.teamName.value
     });
