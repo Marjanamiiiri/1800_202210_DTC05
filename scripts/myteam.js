@@ -1,5 +1,5 @@
-import * as firebase from 'firebase/app';
-const db = firebase.firestore();
+// import * as firebase from 'firebase/app';
+// const db = firebase.firestore();
 
 var currentUser;
 function getCurrentUser() {
@@ -22,27 +22,29 @@ getCurrentUser();
 function displayTeam(user) {
   var userTeam;
   user.get().then((userDoc) => {
-    //get user team info
     userTeam = userDoc.data().team; // array of athlete ids (numbers)
     userTeamName = userDoc.data().teamname; // string
-    console.log("Team " + userTeamName + " contains " + userTeam);
+    // console.log("Team " + userTeamName + " contains " + userTeam);
 
     userTeam.forEach((athleteID) => {
-      // console.log(typeof athleteID, athleteID);
+      athleteID = athleteID.toString();
       db.collection("athletes")
-        .get(athleteID + "")
-        .then((athlete) => {
-          console.log(athlete.name);
-          document
-            .getElementById("table-body")
-            .append(
-              `<tr><td>${athlete.name}</td><td>${athlete.sport}</td><td>${athlete.team}</td></tr>`
-            );
+        .doc(athleteID.toString())
+        .get()
+        .then((athleteDoc) => {
+          if (!athleteDoc.exists) {
+            console.log(athleteID, "does not exist");
+            return;
+          }
+          athleteName = athleteDoc.data().name;
+          athleteSport = athleteDoc.data().sport;
+          athleteCountry = athleteDoc.data().team;
+          // athleteCountry = athleteDoc.data().points;
+          document.getElementById(
+            "table-body"
+          ).innerHTML += `<tr><td>${athleteName}</td><td>${athleteSport}</td><td>${athleteCountry}</td></tr>`;
         });
     });
   });
 }
-
-
-const query = db.collectionGroup('athletes').d
-              .where('users', '==', 'G5cr8D6qZIYJXO7ua1jBAS0IuYh2')
+// displayTeam();

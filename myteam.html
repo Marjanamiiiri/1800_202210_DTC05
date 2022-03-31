@@ -53,11 +53,14 @@
       <ul class="pagination pagination-lg">
         <li class="page-item disabled">
           May use this line <a class="page-link" href="#" tabindex="-1">Family Group</a> -->
-        <div class="btn-group text-center">
-          <button type="button" class="btn btn-secondary" style="background-color: #53b4f5;">Winter</button>
-          <button type="button" class="btn btn-secondary">League 2</button>
-          <button type="button" class="btn btn-secondary">League 3</button>
-        </div>
+          <div class="dropdownLeagues">
+            <button class="dropbtnLeagues">Leagues</button>
+            <div class="dropdown-leagues">
+              <a href="#">MarsWater</a>
+              <a href="#">FamilyFightClub</a>
+              <a href="#">FriendStones</a>
+            </div>
+          </div>
     
     <div id="myteamChart" >
       <div class="containerChart">
@@ -71,24 +74,17 @@
                   <th scope="col">Points</th>
                 </tr>
               </thead>
-              <tbody> 
+              <!-- This is the template/placeholder for the populated data -->
+              <template id="athleteCardTemplate">
+                <tr>
+                  <td><span id="athlete-card-name"></span></td>  
+                  <td><span id="athlete-card-sport"></span></td>  
+                  <td><span id="athlete-card-points"></span></td>
+                </tr> 
+              </template>
+
                 <!-- append the following chunk to tbody -->
               <tbody id="table-body">
-                <!-- <tr>
-                  <td>Dwayne Slidestones<span id="athlete-card-name"></span></td>  
-                  <td>Curling<span id="athlete-card-sport"></span></td>  
-                  <td>3<span id="athlete-card-points"></span></td> 
-                </tr> -->
-                <!-- <tr>
-                  <td>Caitlyn Figs<span id="athlete-card-name"></span></td>
-                  <td>Figure Skating<span id="athlete-card-sport"></span></td>
-                  <td>3<span id="athlete-card-points"></span></td>
-                </tr>
-                <tr>
-                  <td>Skye Freeman<span id="athlete-card-name"></span></td>
-                  <td>Freestyle Skiing<span id="athlete-card-sport"></span></td>
-                  <td>2<span id="athlete-card-points"></span></td>
-                </tr> -->
               </tbody>
             </table>
           </div>
