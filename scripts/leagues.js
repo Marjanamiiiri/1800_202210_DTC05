@@ -176,14 +176,33 @@ form.addEventListener('submit', (eventobject) => {
 })
 
 
-// This function to be removed
-// function read_display_league_creation() {
-//   db.collection("leagues").doc("TOBEFILLEDINWITHCREATEDLEAGUE")
-//   .onSnapshot(TOBEFILLEDWITHCREATEDLEAGUE => {
-//     document.getElementById("").innerHTML=leaguenameDoc.data().athletes;
-//   })
+// function displayLeague(user) {
+  var userTeam;
+  user.get().then((userDoc) => {
+    userTeam = userDoc.data().team; // array of athlete ids (numbers)
+    userTeamName = userDoc.data().teamname; // string
+    // console.log("Team " + userTeamName + " contains " + userTeam);
 
-// }
+    userTeam.forEach((athleteID) => {
+      athleteID = athleteID.toString();
+      db.collection("athletes")
+        .doc(athleteID.toString())
+        .get()
+        .then((athleteDoc) => {
+          if (!athleteDoc.exists) {
+            console.log(athleteID, "does not exist");
+            return;
+          }
+          userTeamName = userDoc.data().teamname;
+          userLeague = userDoc.data().league;
+          // athleteCountry = athleteDoc.data().points;
+          document.getElementById(
+            "table-body"
+          ).innerHTML += `<tr><td>${userTeamName}</td><td>${userLeague}</td><td><button>Join</button></td></tr>`;
+        });
+    });
+  });
+}
 
 
 jQuery(document).ready(setup);

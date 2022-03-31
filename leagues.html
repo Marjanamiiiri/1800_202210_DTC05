@@ -48,46 +48,6 @@
 
     <div class="row">
         <div class="col-sm-12" align="center">
-       
-               <!-- <form id='form-id'>
-                   <button id='see-me' type='button'>Create League</button>
-                   <button id='look-me' type='button'> Join Existing League</button>
-               </form>
-               <br><br>
-               <div id='show-me'>
-
-                   Tab panes -->
-                   <!-- <div class="tab-content">
-                       <div role="tabpanel" class="tab-pane active" id="home"></div>
-                   </div>
-               </div> -->
-               <!--For the text box for group name submission-->
-               <!-- <div id='show-me-two' style='margin-right: 200px; margin-left: 200px; border:2px solid #ccc'><h2>Create League</h2>
-                <fieldset class="mb-3" id="personalInfoFields" disabled>
-                    <div class="add-league-form">
-                      <label>Your Name</label>
-                      <input type="text" id="nameInput" class="form-control" name="currentUserName" placeholder="Your Name">
-                      <label>League Name</label>
-                      <input type="text" id="groupInput" class="form-control" name="league" placeholder="Enter your league name">
-                      <label>Your Team Name</label>
-                      <input type="text" id="teamInput" class="form-control" name="teamName" placeholder="Enter your team name">
-                      <br>
-                      <button>Submit</button>
-                    </div>
-                </fieldset>
-                <div class="d-flex justify-content-end mt-5"> -->
-                    <!-- <span style="width: 10px"></span> -->
-                    <!-- <button type="button" class="btn btn-secondary" onclick="saveUserInfo()" >Submit<a href="#" target="_blank"></a></button> -->
-                <!-- </div>
-            </form>
-        </div>
-            </div>
-               <div id='show-me-three' type="display:none" style='text-align: center; border:2px solid #ccc'><h2>Join League</h2>
-                    <div id="groupsCardGroup" class="row row-cols-auto" >
-                      <ul><span id="league-creation-goes-here">...</span></ul>
-                      <i class="material-icons">bookmark_border</i>
-                    </div> -->
-               <!-- </div>      -->
                <br>
                <div class="content">
                  <form id="add-league-form">
@@ -102,9 +62,27 @@
 
 <br>
     <!--This below is our scoreboard, may be changed in the future-->
+    <div id="" >
+      <div class="">
+        <div class="row">
+          <div class="col-9">
+            <table class="table table-image">
+              <thead>
+                <tr>
+                  <th scope="col">League Name</th>
+                  <th scope="col">Team</th>
+                  <th scope="col"> </th>
+                </tr>
+              </thead>
+                <!-- append the following chunk to tbody -->
+              <tbody id="table-league-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-
-
+      <br>
     <nav id="footerPlaceholder"></nav>
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
