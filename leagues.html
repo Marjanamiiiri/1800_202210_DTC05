@@ -36,8 +36,8 @@
   <nav id="navbarPlaceholder"></nav>
 
   <!-- Jumbotron Title -->
-  <div class="p-1 mb-1 bg-light rounded-3">
-    <div class="container-fluid py-5">
+  <div class="p-0 mb-1 rounded-3">
+    <div class="container-fluid py-5" style="padding: 0px;">
       <h4 class="display-1 fw-bold text-center">League Creation</h4>
 
       <br><br><br>
@@ -50,7 +50,7 @@
     ">Create a new league or join an existing one.</h2>
       </div>
 
-    <div class="row">
+    <div class="row" style="padding: 25px;">
         <div class="col-sm-12" align="center">
        
                <!-- <form id='form-id'>
@@ -95,6 +95,7 @@
                <br>
                <div class="content">
                  <form id="add-league-form">
+                      <input type="text" id=nameInput name="currentUserName" placeholder="Your Name">
                       <input type="text" name="league" placeholder="Your League Name">
                       <input type="text" name="teamName" placeholder="Your Team Name">
                       <button class="btn">Submit</button>
@@ -115,7 +116,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
+    <script src="./scripts/main.js"></script>
     <script src="./scripts/leagues.js"></script>
 
 </body>
