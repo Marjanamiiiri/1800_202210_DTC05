@@ -62,7 +62,7 @@ a {text-decoration: none;}
   padding: 20px 0;
   color:#4b4c4d;
   background-color: #bfbdc1;
-  /* margin-top: 120px; */
+  margin-top: 50px;
 }
 .footer-basic ul {
   padding:0;
@@ -115,10 +115,18 @@ a {text-decoration: none;}
 }
 /* Footer css(finish) */
 
-/* Sport css */
-.container {
-  padding: 30px;
+/* Sports */
+#sports-go-here {
 }
+
+.sport-card {
+  width: 25%; background-color: #f1f1f1;
+}
+.card-title {
+  font-size: 10px; color: black;
+}
+
+
 .container-event {
   height: 30pc;
 }
