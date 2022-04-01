@@ -19,8 +19,10 @@ function getCurrentUser() {
 }
 getCurrentUser();
 
+var pointTotal = 0;
 function displayTeam(user) {
   var userTeam;
+
   user.get().then((userDoc) => {
     userTeam = userDoc.data().team; // array of athlete ids (numbers)
     userTeamName = userDoc.data().teamname; // string
@@ -39,15 +41,20 @@ function displayTeam(user) {
           athleteName = athleteDoc.data().name;
           athleteSport = athleteDoc.data().sport;
           athleteCountry = athleteDoc.data().noc; // <td>${athleteCountry}</td>
-          // athleteCountry = athleteDoc.data().points;
+          athletePoints = athleteDoc.data().points;
+          pointTotal += athletePoints;
           document.getElementById("table-body").innerHTML += `<tr>
           <td>${athleteName}</td>
           <td>${athleteSport}</td>
-          <td>${"#"}</td>
+          <td>${athletePoints}</td>
           <td><i class="material-icons add-button" id="add-${athleteID}">remove_circle_outline</i></td>
           </tr>`;
           $("#add-" + athleteID).click(() => {
             addToTeam(user, parseInt(athleteID));
+          });
+          console.log(pointTotal);
+          userDoc.ref.update({
+            points: pointTotal,
           });
         });
     });
@@ -84,7 +91,8 @@ function addToTeam(currentUser, athlete) {
         )
         .then(function () {
           console.log(athlete + " has been added for: " + user.name);
-          document.getElementById(`add-${athlete}`).innerText = "remove_circle_outline";
+          document.getElementById(`add-${athlete}`).innerText =
+            "remove_circle_outline";
         });
     }
   });
