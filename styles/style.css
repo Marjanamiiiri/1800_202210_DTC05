@@ -4,6 +4,8 @@
   --blue: #3c7da8;
   --green: #28b328;
   --red: rgb(255, 94, 0);
+  --orange: #ffa600;
+  --bright-blue: #53b4f5;
 }
 * {
   box-sizing: border-box;
@@ -11,6 +13,16 @@
 }
  /* Nav and Header CSS(start) */
 a {text-decoration: none;}
+.navbar {
+  margin-bottom: 10px;
+  padding: 0px;
+}
+#nav-gradient {
+  background: linear-gradient(to left, #ffa600, #53b4f5);
+}
+#nav-logo {
+  padding: 5px;
+}
 #brand {
   font-size: 18px;
   display: flex;
@@ -21,7 +33,7 @@ a {text-decoration: none;}
 }
 .display-1{
   font-family: 'Fugaz One', cursive;
-  color: #363636;
+  /* color: #363636; */
 }
 .btn-outline-info {
   border-color: #3c7da8;
@@ -47,10 +59,10 @@ a {text-decoration: none;}
 /* Footer css(start) */
 
 .footer-basic {
-  padding:40px 0;
+  padding: 20px 0;
   color:#4b4c4d;
   background-color: #bfbdc1;
-  margin-top: 120px;
+  /* margin-top: 120px; */
 }
 .footer-basic ul {
   padding:0;
@@ -73,7 +85,7 @@ a {text-decoration: none;}
 }
 .footer-basic .social {
   text-align:center;
-  padding-bottom:25px;
+  padding-bottom: 10px;
 }
 .footer-basic .social > a {
   font-size:24px;
@@ -84,8 +96,8 @@ a {text-decoration: none;}
   text-align:center;
   border-radius:50%;
   border:1px solid #f1f1f1;
-  margin:0 8px;
-  color:inherit;
+  margin: 0 8px;
+  color: white;
   opacity:0.75;
 }
 .footer-basic .social > a:hover {

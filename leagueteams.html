@@ -38,81 +38,32 @@
   <!-- Jumbotron Title -->
   <div class="p-0 mb-1 rounded-3">
     <div class="container-fluid py-5" style="padding: 0px;">
-      <h1 class="display-1 fw-bold text-center"><span>LeagueName</span>League</h1>
-
+      <h1 class="display-1 fw-bold text-center"><a id="league-name-goes-here"></a> League</h1>
+      <br>
+      <div id="myteam-table" >
+        <div class="container">
+          <div class="row">
+            <div class="col-20">
+              <table class="table table-image">
+                <thead>
+                  <tr>
+                    <th scope="col">Teams</th>  <!--User's Team name-->
+                    <th scope="col">Name</th>  <!-- Name of the user-->
+                    <th scope="col">Points</th>  <!-- Points obtained by the user(s) -->
+                    <th scope="col"> </th>
+                  </tr>
+                </thead>
+                <tbody id="table-body-users">
+                  <!-- table rows added here via displayTeam() -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- This div is for user's teams to be displayed-->
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" id="current-user-team" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Terenceformer
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <!-- This is to grab the athletes of the user -->
-              <div id="myteam-table" >
-                <div class="container">
-                  <div class="row">
-                    <div class="col-4">
-                      <table class="table table-image">
-                        <thead>
-                          <tr>
-                            <th scope="col">Athlete</th>
-                            <th scope="col">Event</th>
-                            <!-- <th scope="col">Country</th> -->
-                            <th scope="col">Points</th>
-                            <th scope="col"> </th>
-                          </tr>
-                        </thead>
-                        <tbody id="table-body">
-                          <!-- table rows added here via displayTeam() -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- ^^ The Table ^^ -->
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" id="other-user-team" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              PLACEHOLDER
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <!-- This is to grab the athletes of the user -->
-              <div id="myteam-table" >
-                <div class="container">
-                  <div class="row">
-                    <div class="col-4">
-                      <table class="table table-image">
-                        <thead>
-                          <tr>
-                            <th scope="col">Athlete</th>
-                            <th scope="col">Event</th>
-                            <!-- <th scope="col">Country</th> -->
-                            <th scope="col">Points</th>
-                            <th scope="col"> </th>
-                          </tr>
-                        </thead>
-                        <tbody id="table-body-others"> <!--Currently no id for other users-->
-                          <!-- table rows added here via displayTeam() -->
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- ^^ The Table ^^ -->
-            </div>
-          </div>
-        </div>
+      
 
     <nav id="footerPlaceholder"></nav>
     <!-- Javascript scripts -->

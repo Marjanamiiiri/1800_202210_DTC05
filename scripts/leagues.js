@@ -26,6 +26,8 @@ function displayLeagues(user) {
       .then((snap) => {
         snap.forEach((doc) => {
           leagueName = doc.id;
+          console.log(userLeagues);
+          console.log(leagueName);
           if (userLeagues.includes(leagueName)) {
             // add to your-leagues
             document.getElementById(

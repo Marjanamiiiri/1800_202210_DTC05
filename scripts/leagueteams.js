@@ -23,6 +23,8 @@ function getUsers(league) {
     .then((doc) => {
       // list of users with team in current league
       const leagueUsers = doc.data().users;
+      const leagueName = doc.id;
+      // document.getElementById("league-name-goes-here").innerHTML += `${leagueName}`
       // TODO put current user FIRST
       
 
@@ -37,8 +39,13 @@ function getUsers(league) {
             const userName = userDoc.data().name;
             let points = userDoc.data().points;
             // accordianButtonText = teamName + " - " + points + "pts";
-
-            // populate table with above
+            document.getElementById("league-name-goes-here").innerHTML += `${leagueName}`
+            document.getElementById("table-body-users").innerHTML += `<tr>
+            <td>${teamName}</td>
+            <td>${userName}</td>
+            <td>${points}</td>
+            </tr>`;
+            // populate users team names, names and points table with above
 
 
 
@@ -83,3 +90,4 @@ function getUsers(league) {
       });
     });
 }
+getUsers();
