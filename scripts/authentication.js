@@ -15,7 +15,11 @@ var uiConfig = {
           //define a document for a user with UID as a document ID
           .doc(user.uid).set({
             name: user.displayName,
-            email: user.email
+            email: user.email,
+            team: [],
+            teamname: "",
+            leagues: [],
+            points: 0
           }).then(function(){
             console.log("New user added");
             window.location.assign("main.html");
