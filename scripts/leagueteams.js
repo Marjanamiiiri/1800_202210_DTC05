@@ -1,14 +1,4 @@
 
-// This is to be moved over to the leagues.js
-function leagueMoveURL() {  //Add sortkey into the parameter
-  db.collection("leagues")
-  .get()
-  .then(allusers => {
-      allusers.forEach(doc => {  // forEach goes through each doc
-          var leagueName = doc.data().league; //gets the name of the key field
-          let leagueExpand = leagueNameclickable***.content.cloneNode(true);
-          leagueExpand.querySelector('.list-group-item').href = "leagues.html?leagueName="+leagueName;
-
 
 // This is to grab other user's information and populate in the accordian
 var otherUser;
