@@ -23,6 +23,10 @@ a {text-decoration: none;}
 #nav-logo {
   padding: 5px;
 }
+.nav-link {
+  font-size: larger;
+  font-weight: bolder;
+}
 #brand {
   font-size: 18px;
   display: flex;
