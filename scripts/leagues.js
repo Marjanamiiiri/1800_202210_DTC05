@@ -30,7 +30,8 @@ function displayLeagues(user) {
             // add to your-leagues
             document.getElementById(
               "your-leagues"
-            ).innerHTML += `<li class="list-group-item">${leagueName}
+            ).innerHTML += `<li class="list-group-item">
+            <a href="leagueteams.html?league=${leagueName}">${leagueName}</a>
           <button id="${leagueName}" type="button" class="btn-join btn" onclick="joinLeague(currentUser,'${leagueName}')">LEAVE</button>
           </li>`;
           } else {
