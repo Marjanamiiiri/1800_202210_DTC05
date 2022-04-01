@@ -3,6 +3,7 @@
 :root {
   --blue: #3c7da8;
   --green: #28b328;
+  --red: rgb(255, 94, 0);
 }
 * {
   box-sizing: border-box;
@@ -172,6 +173,12 @@ a {text-decoration: none;}
    float: right;
    margin-right: 0;
  }
+ .btn-leave {
+  background-color: var(--red);
+  color: white;
+  float: right;
+  margin-right: 0;
+}
  #btn-submit {
    
  }

@@ -1,6 +1,3 @@
-const leagueList = document.querySelector('#league-creation-goes-here');
-const form = document.querySelector('#add-league-form');
-
 var currentUser;
 function getCurrentUser() {
   firebase.auth().onAuthStateChanged((user) => {
@@ -20,68 +17,106 @@ function getCurrentUser() {
 getCurrentUser();
 
 function displayLeagues(user) {
-  var userTeam;
+  $("#your-leagues").empty();
+  $("#join-leagues").empty();
   user.get().then((userDoc) => {
     userLeagues = userDoc.data().leagues; // array of leagues (strings)
-    db.collection("leagues").get().then((snap)=>{
-      snap.forEach((doc)=>{
-        leagueName = doc.id;
-        if (userLeagues.includes(leagueName)){
-          // add to your-leagues
-          document.getElementById("your-leagues").innerHTML += `<li class="list-group-item">${leagueName}
-          <button id="leave-${leagueName}" type="button" class="btn-leave btn">LEAVE</button>
+    db.collection("leagues")
+      .get()
+      .then((snap) => {
+        snap.forEach((doc) => {
+          leagueName = doc.id;
+          if (userLeagues.includes(leagueName)) {
+            // add to your-leagues
+            document.getElementById(
+              "your-leagues"
+            ).innerHTML += `<li class="list-group-item">${leagueName}
+          <button id="${leagueName}" type="button" class="btn-join btn" onclick="joinLeague(currentUser,'${leagueName}')">LEAVE</button>
           </li>`;
-          $(`#leave-${leagueName}`).click(() => {
-            joinLeague(user, parseInt(athleteID));
-          });
-        }else{
-          // add to join-leagues
-          document.getElementById("join-leagues").innerHTML += `<li class="list-group-item">${leagueName}
-          <button id="join-${leagueName}" type="button" class="btn-join btn">JOIN</button></li>`;
-          $(`#join-${leagueName}`).click(() => {
-            joinLeague(user, parseInt(athleteID));
-          });
-        }
+          } else {
+            // add to join-leagues
+            document.getElementById(
+              "join-leagues"
+            ).innerHTML += `<li class="list-group-item">${leagueName}
+          <button id="${leagueName}" type="button" class="btn-join btn" onclick="joinLeague(currentUser,'${leagueName}')">JOIN</button></li>`;
+          }
+        });
       });
-    });
   });
+  // onclick="f()"
+  // $(".btn-join").click(function () {
+  //   joinLeague(user, this.id);
+  //   console.log("add event");
+  // });
 }
 
-
-function joinLeague(currentUser, athlete) {
+function joinLeague(currentUser, league) {
   currentUser.get().then((userDoc) => {
     user = userDoc.data();
-    console.log(user.name, user.team, athlete);
-    if (user.team.includes(athlete)) {
+    if (user.leagues.includes(league)) {
       currentUser
         .set(
           {
-            team: firebase.firestore.FieldValue.arrayRemove(athlete),
+            leagues: firebase.firestore.FieldValue.arrayRemove(league),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log(athlete + " has been removed for: " + user.name);
-          document.getElementById(`add-${athlete}`).innerText = "person_add";
+          console.log(user.name + " has left league: " + league);
+          // document.getElementById(`add-${athlete}`).innerText = "person_add";
+          addUserToLeague(league, false);
+          displayLeagues(currentUser);
         });
     } else {
       currentUser
         .set(
           {
-            team: firebase.firestore.FieldValue.arrayUnion(athlete),
+            leagues: firebase.firestore.FieldValue.arrayUnion(league),
           },
           {
             merge: true,
           }
         )
         .then(function () {
-          console.log(athlete + " has been added for: " + user.name);
-          document.getElementById(`add-${athlete}`).innerText = "remove_circle_outline";
+          console.log(user.name + " has joined league: " + league);
+          // document.getElementById(`add-${athlete}`).innerText = "remove_circle_outline";
+          addUserToLeague(league, true);
+          displayLeagues(currentUser);
         });
     }
   });
+  // console.log("before displayLeagues");
+  // displayLeagues(currentUser);
+  // console.log("after displayLeagues");
+}
+
+function addUserToLeague(league, join) {
+  const currLeague = db.collection("leagues").doc(league);
+  // console.log(currLeague.data().users);
+  // console.log(currentUser.id);
+  if (join) {
+    //
+    currLeague.set(
+      {
+        users: firebase.firestore.FieldValue.arrayUnion(currentUser.id),
+      },
+      {
+        merge: true,
+      }
+    );
+  } else {
+    //
+    currLeague.set(
+      {
+        users: firebase.firestore.FieldValue.arrayRemove(currentUser.id),
+      },
+      {
+        merge: true,
+      }
+    );
+  }
 }
 
 // This is for the created leagues to be placed into the "Join Existing Leagues" for user selection afterwards.
@@ -95,9 +130,6 @@ function joinLeague(currentUser, athlete) {
 //     form.teamName.value = ''
 // })
 
-
-function setup() {
-}
+function setup() {}
 
 jQuery(document).ready(setup);
-
