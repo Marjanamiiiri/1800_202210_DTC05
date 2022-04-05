@@ -26,35 +26,27 @@ function getUsers(league) {
       const leagueName = doc.id;
       // document.getElementById("league-name-goes-here").innerHTML += `${leagueName}`
       // TODO put current user FIRST
-      
 
       leagueUsers.forEach((user) => {
         db.collection("users")
           .doc(user)
           .get()
           .then((userDoc) => {
-
             // in accordian header
             const teamName = userDoc.data().teamname;
             const userName = userDoc.data().name;
             let points = userDoc.data().points;
             // accordianButtonText = teamName + " - " + points + "pts";
-            document.getElementById("league-name-goes-here").innerHTML += `${leagueName}`
+            document.getElementById(
+              "league-name-goes-here"
+            ).innerHTML = `${leagueName}`; //This will add the league name of the selected league from league.html, to leagueteams.html
+            // This will populate the information of the user's teamname, user's name and their total points
             document.getElementById("table-body-users").innerHTML += `<tr>
             <td>${teamName}</td>
             <td>${userName}</td>
             <td>${points}</td>
             </tr>`;
             // populate users team names, names and points table with above
-
-
-
-
-
-
-
-
-
 
             // in accordian body (table)
             // let points = 0;
@@ -71,15 +63,14 @@ function getUsers(league) {
             //       }
             //       athleteName = athleteDoc.data().name;
             //       athleteSport = athleteDoc.data().sport;
-            //       athleteCountry = athleteDoc.data().noc; 
+            //       athleteCountry = athleteDoc.data().noc;
             //       // athleteItem = athleteName + " " + athleteSport;
-                  
+
             //       // document.getElementById("table-body").innerHTML += `<tr>
             //       //   <td>${athleteName}</td>
             //       //   <td>${athleteSport}</td>
             //       //   <td>${"#"}</td>
             //       //   </tr>`;
-
 
             //       // calculate total points based on athletes' points
             //       // athleteCountry = athleteDoc.data().points;

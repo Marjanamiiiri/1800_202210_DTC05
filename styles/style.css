@@ -62,7 +62,7 @@ a {text-decoration: none;}
   background-clip: text;
 }
 
-/* Nav and Header CSS(finish) */
+/* Nav and Header(finish) */
 
 /* Footer css(start) */
 
@@ -122,20 +122,15 @@ a {text-decoration: none;}
 .list-inline-item {
   font-size: 10px;
 }
-/* Footer css(finish) */
+/* Footer(finish) */
 
-/* Sports */
-#sports-go-here {
-}
-
+/* Sports.html */
 .sport-card {
   width: 25%; background-color: #f1f1f1;
 }
 .card-title {
   font-size: 10px; color: black;
 }
-
-
 .container-event {
   height: 30pc;
 }
@@ -181,21 +176,6 @@ a {text-decoration: none;}
   font-size: 10px;
   /* transition: all .5s ease; */
  }
- /* .btn:hover {
-  letter-spacing: 3px;
-  background-color: #ff8e00;
-  color: hsl(0, 0%, 100%);
-  box-shadow: #8ecae6 0px 7px 29px 0px;
- }
- .btn:active {
-  letter-spacing: 3px;
-  background-color: #003f7d;
-  color: hsl(0, 0%, 100%);
-  box-shadow: #ff8e00 0px 0px 0px 0px;
-  transform: translateY(10px);
-  transition: 100ms;
- } */
-
  .btn-join {
    background-color: var(--green);
    color: white;
@@ -208,16 +188,17 @@ a {text-decoration: none;}
   float: right;
   margin-right: 0;
 }
- #btn-submit {
-   
- }
-
- .fixed-bottom {
-   display: none;
- }
-
-.material-icons.md-48 {
-   color: #a0a0a0;
+/* main.html (build a team / view my team/ join a league) */
+.card-text {
+  font-size: 10px; 
+  color: #363636;
+  font-family: 'Fugaz One', cursive;
+  margin: 0px;
+  padding: 0px;
+}
+.card-text:hover{
+  color: #53b4f5;
+  transition: color .5s;
 }
  @media only screen and (max-width: 1000px) {
   header nav {
@@ -226,11 +207,5 @@ a {text-decoration: none;}
 
   #hamburger-icon {
     display: block;
-  }
-  .m-4{
-    display: none;
-  } 
-  #myteamChart{
-    margin-left: 7pc;
   }
 }

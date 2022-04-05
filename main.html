@@ -51,8 +51,8 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Jumbotron Title -->
-    <div class="p-1 mb-4 rounded-3">
-      <div class="container-fluid py-5">
+    <div class="p-0 mb-4 rounded-3">
+      <div class="py-5">
         <h1 class="display-1 fw-bold text-center">My OlymPicks</h1>
         <p
           style="
@@ -60,47 +60,42 @@
             font-family: 'Quicksand', sans-serif;
             text-transform: uppercase;
             letter-spacing: 5px;
+            padding: 0px 10px 0px 10px;
           "
         >
           The home of Fantasy Olympic Sports
         </p>
         <br />
 
+        <!-- say hello to the user that has signed in, connected via main.js -->
+        <div class="container-fluid text-dark p-3">
+          <div class="text-center">
+            <h1 class="display-4">Hello <span id="name-goes-here"></span></h1>
+          </div>
+        </div>
+        
         <!-- Card Selections-->
         <div class="m-4">
-          <div class="row row-cols-1 row-cols-md-3 g-3">
-            <div class="col">
+          <div class="row row-cols-3 row-cols-md-3 g-3" style="margin-bottom: 50px;">
+            <div class="col" >
               <!-- Card with default left text alignment -->
               <div class="card text-center">
                 <div class="card-body">
-                  <img
-                    src="images/icons/sports.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <h2 class="card-title">
-                    <span style="color: #003f7d">Sports</span>
-                  </h2>
-                  <p class="card-text">View the Sports Page</p>
-                  <a href="sports.html" class="button">Click Here</a>
+                  <span class="material-icons">
+                    group_add
+                    </span>
+                  <a href="sports.html" class="button"><p class="card-text">Build a team</p></a>
                 </div>
               </div>
             </div>
             <div class="col">
               <!-- Card with center text alignment -->
-              <div class="card text-center">
+              <div class="card text-center" >
                 <div class="card-body">
-                  <img
-                    src="images/icons/myteam.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <h2 class="card-title">
-                    <span style="color: #003f7d">My Team</span>
-                  </h2>
-                  <p class="card-text">Check your Team(s)</p>
-
-                  <a href="myteam.html" class="button">Click Here</a>
+                  <span class="material-icons">
+                    groups
+                    </span>
+                  <a href="myteam.html" class="button"><p class="card-text">View my team</p></a>
                 </div>
               </div>
             </div>
@@ -108,28 +103,16 @@
               <!-- Card with right text alignment -->
               <div class="card text-center">
                 <div class="card-body">
-                  <img
-                    src="images/icons/events.png"
-                    width="50px"
-                    height="50px"
-                  />
-                  <h2 class="card-title">
-                    <span style="color: #003f7d">Events</span>
-                  </h2>
-                  <p class="card-text">View Upcoming Events</p>
-                  <a href="events.html" class="button">Click Here</a>
+                  <span class="material-icons">
+                    add_circle_outline
+                    </span>
+                  <a href="leagues.html" class="button"><p class="card-text">Join a league</p></a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- say hello to the user that has signed in, connected via main.js -->
-        <div class="container-fluid text-dark p-5">
-          <div class="text-center">
-            <h1 class="display-4">Hello <span id="name-goes-here"></span></h1>
-          </div>
-        </div>
+        
         <div class="text-center">
           <img
             src="./images/pngwing.com.png"
@@ -137,8 +120,6 @@
             alt="Responsive image"
           />
         </div>
-      </div>
-    </div>
     <nav id="footerPlaceholder"></nav>
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
