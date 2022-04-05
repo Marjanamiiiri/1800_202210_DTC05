@@ -52,25 +52,14 @@
 
     <!-- Jumbotron Title -->
     <div class="p-0 mb-4 rounded-3">
-      <div class="py-5">
+      <div class="py-2">
         <h1 class="display-1 fw-bold text-center">My OlymPicks</h1>
-        <p
-          style="
-            text-align: center;
-            font-family: 'Quicksand', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            padding: 0px 10px 0px 10px;
-          "
-        >
-          The home of Fantasy Olympic Sports
-        </p>
-        <br />
-
+        <h2>The home of Fantasy Olympic Sports</h2>
+          
         <!-- say hello to the user that has signed in, connected via main.js -->
         <div class="container-fluid text-dark p-3">
           <div class="text-center">
-            <h1 class="display-4">Hello <span id="name-goes-here"></span></h1>
+            <h1 class="display-4">Hello, <p id="name-goes-here" class="username"></p></h1>
           </div>
         </div>
         
@@ -80,34 +69,40 @@
             <div class="col" >
               <!-- Card with default left text alignment -->
               <div class="card text-center">
-                <div class="card-body">
-                  <span class="material-icons">
-                    group_add
-                    </span>
-                  <a href="sports.html" class="button"><p class="card-text">Build a team</p></a>
-                </div>
+                <a href="sports.html" class="button">
+                  <div class="card-body">
+                    <span class="material-icons">
+                      group_add
+                      </span>
+                    <p class="card-text">Build a team</p>
+                  </div>
+                </a>
               </div>
             </div>
             <div class="col">
               <!-- Card with center text alignment -->
               <div class="card text-center" >
-                <div class="card-body">
-                  <span class="material-icons">
-                    groups
-                    </span>
-                  <a href="myteam.html" class="button"><p class="card-text">View my team</p></a>
-                </div>
+                <a href="myteam.html" class="button">
+                  <div class="card-body">
+                    <span class="material-icons">
+                      groups
+                      </span>
+                    <p class="card-text">View my team</p>
+                  </div>
+                </a>
               </div>
             </div>
             <div class="col">
               <!-- Card with right text alignment -->
               <div class="card text-center">
-                <div class="card-body">
-                  <span class="material-icons">
-                    add_circle_outline
-                    </span>
-                  <a href="leagues.html" class="button"><p class="card-text">Join a league</p></a>
-                </div>
+                <a href="leagues.html" class="button">
+                  <div class="card-body">
+                    <span class="material-icons">
+                      add_circle_outline
+                      </span>
+                    <p class="card-text">Join a league</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -119,7 +114,7 @@
             class="img-fluid"
             alt="Responsive image"
           />
-        </div>
+      </div>
     <nav id="footerPlaceholder"></nav>
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>

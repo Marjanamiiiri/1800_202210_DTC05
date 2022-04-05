@@ -46,14 +46,15 @@ function displayTeam(user) {
             athletePoints = athleteDoc.data().points;
             pointTotal += athletePoints;
             document.getElementById("table-body").innerHTML += `<tr>
-          <td>${athleteName}</td>
-          <td>${athleteSport}</td>
-          <td>${athletePoints}</td>
-          <td><i class="material-icons add-button" id="${athleteID} onclick="addToTeam(currentUser, ${athleteID})">remove_circle_outline</i></td>
-          </tr>`;
+            <td>${athleteName}</td>
+            <td>${athleteSport}</td>
+            <td>${athletePoints}</td>
+            <td><i class="material-icons add-button" id="${athleteID} onclick="addToTeam(currentUser, ${athleteID})">remove_circle_outline</i></td>
+            </tr>`;
             userDoc.ref.update({
               points: pointTotal,
             });
+            $("#totalpoints").text(pointTotal);
           });
       });
     })
