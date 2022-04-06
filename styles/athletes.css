@@ -25,22 +25,20 @@
   #title-page {
       margin-left: 20px;
   }
-  #title-gender {
+
+  /* #title-gender {
     color: var(--initial);
     font-size: 16px;
-    display: inline-block;
     vertical-align: top;
     font-variant: small-caps;
-  }
+  } */
   #title-event {
-    font-size: 24px;
-    font-weight: bolder;
-    display: inline-block;
+    /* font-size: 24px;
+    font-weight: bolder; */
+    /* display: inline-block; */
   }
 
-/******************************
-  Athlete Cards athletes.html
-*******************************/
+/*** athletes.html ***/
 
   
   .athlete-card {
@@ -74,16 +72,6 @@
     font-size: 13px;
     display: block;
   }
-  
-  /* .add-button-container {
-    width: 30px;
-    height: 30px;
-    background-color: green;
-    border-radius: 5px;
-    float: right;
-    position: relative;
-    z-index: 100000;
-  } */
 
   .add-button{
     color: var(--add);

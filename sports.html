@@ -50,23 +50,26 @@
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
+    <h1 class="display-5">Choose a sport</h1>
+
     <div class="container">
       <div id="sports-go-here" class="row row-cols-auto text-center"></div>
     </div>
 
     <!-- template for sport cards kept separate  -->
     <template id="sportCardTemplate">
-      <div class="sport-card card py-2 my-2 mx-2">
+      <div class="sport-card card p-2 m-1">
         <a class="card-block stretched-link text-decoration-none" href>
+          <div class="img-container">
           <img
             class="card-image card-img-top"
             src="..."
             alt="..."
-            style="height: 90px"
           />
-          <div class="card-body">
-            <h5 class="card-title text-center m11">Card title</h5>
-          </div>
+        </div>
+          <!-- <div class="card-body"> -->
+            <h5 class="card-title text-center">Card title</h5>
+          <!-- </div> -->
         </a>
       </div>
     </template>

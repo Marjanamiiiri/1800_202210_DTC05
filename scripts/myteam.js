@@ -23,42 +23,47 @@ var pointTotal = 0;
 function displayTeam(user) {
   var userTeam;
 
-  user.get().then((userDoc) => {
-    userTeam = userDoc.data().team; // array of athlete ids (numbers)
-    userTeamName = userDoc.data().teamname; // string
-    // console.log("Team " + userTeamName + " contains " + userTeam);
+  user
+    .get()
+    .then((userDoc) => {
+      userTeam = userDoc.data().team; // array of athlete ids (numbers)
+      userTeamName = userDoc.data().teamname; // string
+      $("#teamname").text(userTeamName);
 
-    userTeam.forEach((athleteID) => {
-      athleteID = athleteID.toString();
-      db.collection("athletes")
-        .doc(athleteID.toString())
-        .get()
-        .then((athleteDoc) => {
-          if (!athleteDoc.exists) {
-            console.log(athleteID, "does not exist");
-            return;
-          }
-          athleteName = athleteDoc.data().name;
-          athleteSport = athleteDoc.data().sport;
-          athleteCountry = athleteDoc.data().noc; // <td>${athleteCountry}</td>
-          athletePoints = athleteDoc.data().points;
-          pointTotal += athletePoints;
-          document.getElementById("table-body").innerHTML += `<tr>
-          <td>${athleteName}</td>
-          <td>${athleteSport}</td>
-          <td>${athletePoints}</td>
-          <td><i class="material-icons add-button" id="add-${athleteID}">remove_circle_outline</i></td>
-          </tr>`;
-          $("#add-" + athleteID).click(() => {
-            addToTeam(user, parseInt(athleteID));
+      userTeam.forEach((athleteID) => {
+        athleteID = athleteID.toString();
+        db.collection("athletes")
+          .doc(athleteID.toString())
+          .get()
+          .then((athleteDoc) => {
+            if (!athleteDoc.exists) {
+              console.log(athleteID, "does not exist");
+              return;
+            }
+            athleteName = athleteDoc.data().name;
+            athleteSport = athleteDoc.data().sport;
+            athleteCountry = athleteDoc.data().noc; // <td>${athleteCountry}</td>
+            athletePoints = athleteDoc.data().points;
+            pointTotal += athletePoints;
+            document.getElementById("table-body").innerHTML += `<tr>
+            <td>${athleteName}</td>
+            <td>${athleteSport}</td>
+            <td>${athletePoints}</td>
+            <td><i class="material-icons add-button" id="${athleteID} onclick="addToTeam(currentUser, ${athleteID})">remove_circle_outline</i></td>
+            </tr>`;
+            userDoc.ref.update({
+              points: pointTotal,
+            });
+            $("#totalpoints").text(pointTotal);
           });
-          console.log(pointTotal);
-          userDoc.ref.update({
-            points: pointTotal,
-          });
-        });
+      });
+    })
+    .then(() => {
+      $(".add-button").click(() => {
+        console.log("func");
+        addToTeam(user, parseInt(this.id));
+      });
     });
-  });
 }
 // displayTeam();
 function addToTeam(currentUser, athlete) {

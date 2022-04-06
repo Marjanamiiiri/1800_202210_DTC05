@@ -17,7 +17,7 @@ var uiConfig = {
             name: user.displayName,
             email: user.email,
             team: [],
-            teamname: "",
+            teamname: user.displayName + "'s Team",
             leagues: [],
             points: 0
           }).then(function(){
