@@ -186,15 +186,19 @@ a {text-decoration: none;}
 }
 /* main.html (build a team / view my team/ join a league) */
 .card-text {
-  font-size: 10px; 
   color: #363636;
   font-family: 'Fugaz One', cursive;
-  margin: 0px;
-  padding: 0px;
+  margin: 10px;
+  padding: 10px;
+  height: 100px;
+  font-size: 30px;
 }
-.card-text:hover{
-  color: #53b4f5;
-  transition: color .5s;
+.material-icons {
+  font-size: 40px;
+}
+.card:hover{
+  background-color: #e0e0e0;
+  transition: background-color .5s;
 }
  @media only screen and (max-width: 1000px) {
   header nav {
