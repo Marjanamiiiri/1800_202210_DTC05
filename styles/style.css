@@ -38,7 +38,7 @@ h2 {
   padding: 0px 10px;
 }
 
-/*** Nav / Header ***/
+/*** navbar ***/
 .navbar {
   margin-bottom: 10px;
   padding: 0px;
@@ -55,10 +55,11 @@ h2 {
 .nav-link {
   font-size: larger;
   font-weight: bolder;
+  font-family: 'Fugaz One', cursive;
 }
 
 #brand {
-  font-size: 18px;
+  /* font-size: 18px; */
   display: flex;
   align-items: center;
   margin-right: 5px;
