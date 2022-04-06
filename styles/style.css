@@ -262,10 +262,7 @@ h2 {
 
 /* main.html (build a team / view my team/ join a league) */
 .card-text {
-<<<<<<< HEAD
-=======
   font-size: 10px;
->>>>>>> 13a7a896e916b52b371d71ed9ec2cfe290a6cf43
   color: #363636;
   font-family: 'Fugaz One', cursive;
   margin: 10px;
@@ -276,16 +273,10 @@ h2 {
 .material-icons {
   font-size: 40px;
 }
-<<<<<<< HEAD
-.card:hover{
-  background-color: #e0e0e0;
-  transition: background-color .5s;
-=======
 
 .card-text:hover {
   color: #53b4f5;
   transition: color .5s;
->>>>>>> 13a7a896e916b52b371d71ed9ec2cfe290a6cf43
 }
 
 @media only screen and (max-width: 1000px) {
