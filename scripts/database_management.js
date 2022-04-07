@@ -17,9 +17,9 @@ function processData(allText) {
 
   // go through each line and build dictionary
   // for (row = 1; row < allTextLines.length; row += 10) {
-  for (row = 1; row < allTextLines.length; row += 4) {
+  for (row = 2; row < allTextLines.length; row += 4) {
     let textLine = allTextLines[row].split("\t");
-    // console.log(textLine);
+
     // skip weird names
     if (/"|\(|\)/.test(textLine[1])) {
       continue;
@@ -36,6 +36,8 @@ function processData(allText) {
       }
       currAthlete[headings[field].toLowerCase()] = fieldValue;
     }
+    // assign random 'medal' to athlete
+    currAthlete['points'] = Math.floor(Math.random() * 4)
 
     // break up 'Events' value into [whole_string, sport, sex, event]
     const re = /(\w+)\s(Men's|Women's|Mixed)\s(.+)/;
@@ -44,6 +46,7 @@ function processData(allText) {
     let sport = textLine[5];
     let gender = eventArr[2];
     let event = eventArr[3];
+
 
     // db.collection("sports")
     //       .doc(sport)
@@ -95,10 +98,11 @@ function processData(allText) {
       }
     }
   }
-  // console.log(athletesDict);
+  console.log(Object.keys(athletesDict).length + " athletes");
+  console.log(athletesDict);
   // writeAthletes(athletesDict);      // write to athletes collection
 
-  // console.log(allSportsEvents);
+  console.log(allSportsEvents);
   // writeEvents(allSportsEvents); // write to sports collection
 }
 
@@ -174,4 +178,19 @@ function formatName(name) {
   const re = /(\w+"\w+"*\w+)(\(-\w+\))*/;
   const nameArr = re.exec(name);
   return nameArr;
+}
+
+
+// range 4 = [0, 1, 2, 3]
+function giveRandomPoints(collection, range) {
+  db.collection(collection)
+    .get()
+    .then((snap) => {
+      snap.forEach((doc) => {
+        pointvalue = Math.floor(Math.random() * range);
+        doc.ref.update({
+          points: pointvalue,
+        });
+      });
+    });
 }
