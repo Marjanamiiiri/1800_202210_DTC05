@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>My OlymPicks</title>
     <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
@@ -39,34 +39,38 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./styles/style.css" />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
-    />
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+  />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/athletes.css" />
+    
   </head>
 
-
   <body>
-    <!--For checkboxes-->
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value=""
-        id="flexCheckDefault"
-      />
-      <label class="form-check-label" for="flexCheckDefault"
-        >Default checkbox</label
-      >
-    </div>
-
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- 
-    This page to contain all extra information about an athlete. 
-  -->
+    <div id="athlete-bio">
+      <div id="athlete-img-container">
+        <img
+          id="athlete-image"
+          src=""
+          alt="athlete photo"
+        />
+      </div>
+      <div id="athlete-info">
+        <p>Name <span id="athlete-name">Namey McNamerson</span></p>
+        <p>Sport<span id="athlete-sport"></span></p>
+        <p>Country<span id="athlete-country"></span></p>
+        <p>Age<span id="athlete-age"></span></p>
+        <p>Height<span id="athlete-height"></span></p>
+        <p>Weight<span id="athlete-weight"></span></p>
+        <h2>Biography</h2>
+        <article>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed odio velit laborum accusantium voluptas nisi soluta nihil. Nihil nesciunt reprehenderit impedit quos, exercitationem labore in minus aliquid, deserunt, quisquam dolore?</article>
+      </div>
+    </div>
 
     <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
