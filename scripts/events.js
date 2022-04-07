@@ -4,7 +4,7 @@
 function displayCards() {
   const urlParams = new URLSearchParams(window.location.search);
   const currSport = urlParams.get("sport");
-  $("#sport-heading").text(currSport.toUpperCase());
+  $("#sport-heading").text(currSport.replace(/-/g, ' ').toUpperCase());
 
   ["Women's", "Men's", "Mixed"].forEach((gender) => {
     db.collection("sports/" + currSport + `/${gender}`)
