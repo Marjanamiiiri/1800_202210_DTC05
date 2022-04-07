@@ -116,6 +116,7 @@ function getNewTeamname() {
           console.log(
             userDoc.data().name + " team set to " + userDoc.data().teamname
           );
+          $("#teamname").text(newTeamname);
         });
     });
   });
