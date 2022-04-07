@@ -95,17 +95,20 @@ h2 {
 }
 .call-to-action-card {
   /* margin-left: 25%; */
-  /* top: 50%; */
-  width: 30%;
+  top: 50%;
+  width:  30% !important;
   margin: auto;
   padding: 5px;
+}
+.call-to-action-card a {
+  width: 100%;
 }
 .call-to-action-card .card-body {
   padding: 5px;
 }
 .card-text {
   /* font-size: smaller;  */
-  font-size: 3.8vw;
+  font-size: 4vw;
   color: #363636;
   font-family: 'Fugaz One', cursive;
   margin: 5px;
@@ -173,7 +176,7 @@ input {
   border-radius: 10px;
   padding-left: 10px;
   margin-right: 10px;
-  font-style: italic;
+  /* font-style: italic; */
   font-size: smaller;
 }
 #myteam-table {
