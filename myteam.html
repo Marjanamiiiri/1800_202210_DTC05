@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>My OlymPicks</title>
   <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
@@ -46,7 +46,10 @@
       My Team
     </h1>
     <h2 id="teamname"></h2>
-    
+    <div id="chang-teamname-container" class="text-center">
+      <input type="text" placeholder="new team name " id="newTeamName">
+      <button type="button" class="btn" onclick="getNewTeamname();">Use New Name</button>
+    </div>
     <div id="myteam-table" >
       <div class="container">
         <div class="row">

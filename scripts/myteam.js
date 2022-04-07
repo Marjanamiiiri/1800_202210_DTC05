@@ -102,3 +102,21 @@ function addToTeam(currentUser, athlete) {
     }
   });
 }
+
+function getNewTeamname() {
+  const newTeamname = document.getElementById("newTeamName").value;
+  console.log(newTeamname);
+  firebase.auth().onAuthStateChanged((user) => {
+    currentUser = db.collection("users").doc(user.uid); //get doc associated with user
+    currentUser.get().then((userDoc) => {
+      console.log(userDoc.data().name);
+      userDoc.ref
+        .set({ teamname: newTeamname }, { merge: true })
+        .then(function () {
+          console.log(
+            userDoc.data().name + " team set to " + userDoc.data().teamname
+          );
+        });
+    });
+  });
+}
