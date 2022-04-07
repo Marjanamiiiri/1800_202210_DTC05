@@ -1,10 +1,9 @@
 function displayCards(collection) {
-  let cardTemplate = document.getElementById("sportCardTemplate");
+  let sportCardTemplate = document.getElementById("sportCardTemplate");
 
   db.collection(collection)
     .get()
     .then((snap) => {
-      var i = 1;
       snap.forEach((doc) => {
         // iterate thru each doc
         // set some variable to data from database document
@@ -12,11 +11,11 @@ function displayCards(collection) {
         var photo = "./images/sports/" + doc.id + ".svg";
 
         // clone the template
-        let newcard = cardTemplate.content.cloneNode(true);
+        let newcard = sportCardTemplate.content.cloneNode(true);
 
         // update elements of the clone
         newcard.querySelector(".card-title").innerHTML = title;
-        newcard.querySelector(".card-image").src = photo;
+        newcard.querySelector(".card-img-top").src = photo;
         newcard.querySelector(".card-block").href =
           "events.html?sport=" + doc.id;
 

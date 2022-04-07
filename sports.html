@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>My OlymPicks</title>
     <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
@@ -50,28 +50,24 @@
     <!-- Nav Bar -->
     <nav id="navbarPlaceholder"></nav>
 
-    <h1 class="display-5">Choose a sport</h1>
+    <h1 class="display-6">Choose a sport</h1>
 
-    <div class="container">
-      <div id="sports-go-here" class="row row-cols-auto text-center"></div>
+    <div class="container ">
+      <div id="sports-go-here" class="row row-cols-auto m-0 p-0"></div>
     </div>
 
-    <!-- template for sport cards kept separate  -->
+    <!-- template for sport cards  -->
     <template id="sportCardTemplate">
-      <div class="sport-card card p-2 m-1">
+
+      <div class="card text-center m-2 p-1">
         <a class="card-block stretched-link text-decoration-none" href>
-          <div class="img-container">
-          <img
-            class="card-image card-img-top"
-            src="..."
-            alt="..."
-          />
-        </div>
+          <img src="..." class="card-img-top" alt="..." />
           <!-- <div class="card-body"> -->
-            <h5 class="card-title text-center">Card title</h5>
+            <p class="card-title text-center">Sport</p>
           <!-- </div> -->
         </a>
       </div>
+      
     </template>
 
     <!-- Footer -->

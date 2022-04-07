@@ -63,8 +63,10 @@ function displayCards(collection) {
             }
             console.log(athleteDoc.data().sex);
             var name = athleteDoc.data().name;
-            var country = athleteDoc.data().team;
+            var country = athleteDoc.data().team.toUpperCase();
             var age = athleteDoc.data().age;
+            var weight = athleteDoc.data().weight;
+            var height = athleteDoc.data().height;
             var pic = "./images/athletes/women_outline.png";
             if (athleteDoc.data().sex == "M") {
               pic = "./images/athletes/men_outline.png";
@@ -77,7 +79,8 @@ function displayCards(collection) {
             newcard.querySelector(".athlete-card-image").alt = name;
             newcard.querySelector(".athlete-card-name").innerHTML = name;
             newcard.querySelector(".athlete-card-country").innerHTML = country;
-            // newcard.querySelector(".athlete-card-age").innerHTML = age;
+            newcard.querySelector(".athlete-card-bio-info").innerHTML = 
+              age + "yrs " + height + "cm " + weight + "kg";
             newcard.querySelector(".athlete-card").setAttribute("id", athleteDoc.id);
             newcard.querySelector(".add-button").setAttribute("id", `add-${athleteDoc.id}`);
             newcard.querySelector("a").href =

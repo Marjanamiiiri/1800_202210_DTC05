@@ -42,14 +42,18 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Jumbotron Title -->
-    <h1 class="fw-bold text-center">
+    <h1 class="display-4 fw-bold text-center">
       My Team
     </h1>
-    <h2 id="teamname"></h2>
+    <h3 id="teamname" class="display-3"></h3>
+
     <div id="chang-teamname-container" class="text-center">
-      <input type="text" placeholder="new team name " id="newTeamName">
-      <button type="button" class="btn" onclick="getNewTeamname();">Use New Name</button>
+      <input id="newTeamName" type="text" placeholder="new team name ">
+      <button type="button" class="btn" onclick="getNewTeamname();">CHANGE NAME</button>
     </div>
+
+    <h1 class="display-6 text-center">Total points: <span id="totalpoints"></span></h1>
+
     <div id="myteam-table" >
       <div class="container">
         <div class="row">
@@ -59,7 +63,6 @@
                 <tr>
                   <th scope="col">Athlete</th>
                   <th scope="col">Event</th>
-                  <!-- <th scope="col">Country</th> -->
                   <th scope="col">Points</th>
                   <th scope="col"> </th>
                 </tr>
@@ -73,14 +76,11 @@
       </div>
     </div>
 
-    <h1 class="text-center">Total points: <span id="totalpoints"></span></h1>
-
     <nav id="footerPlaceholder"></nav>
+
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <!-- <script src="./scripts/main.js"></script> -->
     <script src="./scripts/myteam.js"></script>
-    <!-- <script src="./scripts/leagues.js"></script> -->
   </body>
 </html>

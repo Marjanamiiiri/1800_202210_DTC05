@@ -13,10 +13,12 @@
   cursor: pointer;
 }
 
+
+/*** athletes.html ***/
+
 #title-page * {
   margin: 8px;
 }
- 
 
 .athlete-card {
   margin: 0;
@@ -47,10 +49,16 @@
 .athlete-card-info {
   margin: 8px;
 }
+.athlete-card-name{
 
+  font-weight: bolder;
+}
+.athlete-card-bio-info {
+  font-size: 11px;
+}
 .athlete-card p {
   margin-bottom: 2px;
-  font-size: 13px;
+  font-size: 14px;
   display: block;
 }
 
@@ -61,4 +69,31 @@
 
 .athlete-img a {
   text-decoration: none;
+}
+
+/*** athlete-info.html ***/
+
+#athlete-img-container {
+  display: flex;
+  align-items: center;
+}
+#athlete-image {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  /* width: auto; */
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: var(--bg-athlete);
+  border-radius: 10px;
+}
+#athlete-bio {
+  padding: 30px;
+}
+#athlete-info p {
+  margin-bottom: 0.5rem;
+  font-family: 'Fugaz One', cursive;
+}
+#athlete-info span {
+  margin-left: 10px;
 }
