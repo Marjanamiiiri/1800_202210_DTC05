@@ -113,7 +113,6 @@ function writeAthletes(athletes) {
   }
 }
 
-// redo as: gender(coll) > sport(doc) > event(field) > [athletes]
 function writeEvents(events) {
   // console.log(events);
   // {sport: {gender: {event: [athletes]}}}
@@ -137,15 +136,8 @@ function writeEvents(events) {
         }
       }
     }
-    // if (eventArr.length > 0) {
-    //   console.log(sex, eventArr);
-    //   db.collection("sports")
-    //     .doc(sportID)
-    //     .set({ name: sport, [sex]: eventArr }, { merge: true });
-    // }
   }
 }
-//  db.collection("athletes-test").doc(docname).set()
 
 // fixes incorrectly created sports fields for athlete documents
 function adjustSportFields() {
@@ -177,23 +169,9 @@ function adjustSportFields() {
     });
 }
 
-// some names are weird, let's fix 'em
+// some names are weird, this tried to fix them
 function formatName(name) {
   const re = /(\w+"\w+"*\w+)(\(-\w+\))*/;
   const nameArr = re.exec(name);
   return nameArr;
 }
-
-// found on the web:
-const recursiveSearch = (obj, searchKey, results = []) => {
-  const r = results;
-  Object.keys(obj).forEach((key) => {
-    const value = obj[key];
-    if (key === searchKey && typeof value !== "object") {
-      r.push(value);
-    } else if (typeof value === "object") {
-      recursiveSearch(value, searchKey, r);
-    }
-  });
-  return r;
-};
