@@ -34,7 +34,7 @@ function displayLeagues(user) {
               "your-leagues"
             ).innerHTML += `<li class="list-group-item">
             <a href="leagueteams.html?league=${leagueName}">${leagueName}</a>
-          <button id="${leagueName}" type="button" class="btn-join btn" onclick="joinLeague(currentUser,'${leagueName}')">LEAVE</button>
+          <button id="${leagueName}" type="button" class="btn-join btn-leave btn" onclick="joinLeague(currentUser,'${leagueName}')">LEAVE</button>
           </li>`;
           } else {
             // add to join-leagues
@@ -133,6 +133,22 @@ function addUserToLeague(league, join) {
 //     form.teamName.value = ''
 // })
 
-function setup() {}
-
-jQuery(document).ready(setup);
+function createLeague() {
+  const newLeagueName = document.getElementById("newLeagueName").value;
+  db.collection("leagues")
+    .doc(newLeagueName)
+    .get()
+    .then((doc) => {
+      if (!doc.exists) {
+        // console.log("exists");
+        db.collection("leagues")
+          .doc(newLeagueName)
+          .set({
+            users: [],
+          })
+          .then(() => {
+            displayLeagues(currentUser);
+          });
+      }
+    });
+}

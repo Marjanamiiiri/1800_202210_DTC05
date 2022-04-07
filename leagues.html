@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>My OlymPicks</title>
     <meta name="comp1800 boilerplate code" content="BCIT COMP-1800 Project" />
@@ -51,58 +51,30 @@
     <nav id="navbarPlaceholder"></nav>
 
     <!-- Jumbotron Title -->
-    <div class="container-fluid py-4">
-      <h1 class="display-1 fw-bold text-center">Leagues</h1>
-      <!-- <div id="join-create-btn-group" class="btn-group" role="group" aria-label="Basic example">
-        <button id="join-league" type="button" class="btn btn-primary active">
-          JOIN
-        </button>
-        <button id="create-league" type="button" class="btn btn-primary">
-          CREATE
-        </button>
-      </div> -->
-      <h2>Your leagues:</h2>
+    <div class="container">
+      <h1 class="display-4 fw-bold text-center">Leagues</h1>
+      <h2 class="league-section-title">Your leagues:</h2>
       <div class="container">
         <ul id="your-leagues" class="list-group">
           <!-- already joined leagues go here  -->
         </ul>
       </div>
-      <h2>Join a league:</h2>
+      <h2 class="league-section-title">Join a league:</h2>
       <div class="container">
         <ul id="join-leagues" class="list-group">
           <!-- not joined leagues go here  -->
         </ul>
       </div>
-      <h2>Create a new league:</h2>
-      <div class="container">
-        <form id="add-league-form">
-          <input type="text" name="league" placeholder="Your League Name" />
-          <button id="btn-submit" class="btn">CREATE</button>
-        </form>
+      <h2 class="league-section-title">Create a new league:</h2>
+      <div class="container text-center">
+          <input id="newLeagueName" type="text" name="league" placeholder="Your League Name" />
+          <button id="btn-create" class="btn" onclick="createLeague()">CREATE</button>
       </div>
     </div>
 
-    <!--This below is our scoreboard, may be changed in the future-->
-    <!-- <div id="" >
-      <div class="">
-        <div class="row">
-          <div class="col-9">
-            <table class="table table-image">
-              <thead>
-                <tr>
-                  <th scope="col">League Name</th>
-                  <th scope="col">Team</th>
-                  <th scope="col"> </th>
-                </tr>
-              </thead>
-              <tbody id="table-league-body">
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> -->
-
+    <!-- Footer -->
     <nav id="footerPlaceholder"></nav>
+
     <!-- Javascript scripts -->
     <script src="./scripts/firebaseAPI_TEAM05.js"></script>
     <script src="./scripts/skeleton.js"></script>
