@@ -90,15 +90,10 @@ function joinLeague(currentUser, league) {
         });
     }
   });
-  // console.log("before displayLeagues");
-  // displayLeagues(currentUser);
-  // console.log("after displayLeagues");
 }
 
 function addUserToLeague(league, join) {
   const currLeague = db.collection("leagues").doc(league);
-  // console.log(currLeague.data().users);
-  // console.log(currentUser.id);
   if (join) {
     //
     currLeague.set(

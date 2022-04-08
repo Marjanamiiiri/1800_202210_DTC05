@@ -7,20 +7,16 @@
   --orange: #ffa600;
   --bright-blue: #53b4f5;
 }
-
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 .material-icons {
   cursor: pointer;
 }
-
 a {
   text-decoration: none;
 }
-
 h1 {
   /* font-size: 36px; */
   /* font-weight: 800; */
@@ -28,7 +24,6 @@ h1 {
   font-family: 'Fugaz One', cursive;
   text-align: center;
 }
-
 h2 {
   font-size: 20px;
   text-align: center;
@@ -64,6 +59,7 @@ h2 {
   align-items: center;
   margin-right: 5px;
   font-family: 'Fugaz One', cursive;
+  font-size: larger;
   color: white
 }
 
@@ -90,9 +86,7 @@ h2 {
 
 /* main.html */
 
-#name-goes-here{
-  font-size: x-large;
-}
+
 .call-to-action-card {
   /* margin-left: 25%; */
   top: 50%;
